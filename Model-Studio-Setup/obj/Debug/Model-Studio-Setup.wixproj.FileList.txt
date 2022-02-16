@@ -1,0 +1,6 @@
+C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Debug\ModelStudio.Installer.wixpdb
+obj\Debug\Product.wixobj
+C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Debug\ModelStudio.Installer.msi
+obj\Debug\Model-Studio-Setup.wixproj.BindContentsFileListnull.txt
+obj\Debug\Model-Studio-Setup.wixproj.BindOutputsFileListnull.txt
+obj\Debug\Model-Studio-Setup.wixproj.BindBuiltOutputsFileListnull.txt

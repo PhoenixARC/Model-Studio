@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Product Id="*"
-           Name="Model Studio"
+           Name="Spark Model Editor"
            Language="1033"
            Version="1.0.0.0"
            Manufacturer="PhoenixARC"
-           UpgradeCode="0bfb1026-21f2-4552-ad71-ca90aae50a25">
+           UpgradeCode="b1d0c438-89c6-4676-a5ac-ecc7beda4867">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -26,7 +26,7 @@
     <WixVariable Id="WixUIBannerBmp" Value="Bitmaps/Banner.png" />
     <WixVariable Id="WixUIDialogBmp" Value="Bitmaps/Dialog.png" />
 
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Model Studio" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Spark Model Editor" />
     <Property Id="WixShellExecTarget" Value="[#Spark Model Editor.exe]" />
     <CustomAction Id="CA.LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
 

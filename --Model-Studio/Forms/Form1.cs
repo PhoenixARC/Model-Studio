@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -332,13 +333,11 @@ namespace __Model_Studio
 
         private void tESTINGToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Forms.FakeProgressBar fb = new Forms.FakeProgressBar();
-            fb.ShowDialog();
         }
 
         private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/PhoenixARC/--Model-Studio");
+            System.Diagnostics.Process.Start("https://github.com/PhoenixARC/Model-Studio");
         }
 
         #endregion

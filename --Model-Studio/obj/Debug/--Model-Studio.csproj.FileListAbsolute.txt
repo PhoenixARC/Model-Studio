@@ -16,9 +16,11 @@ C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Stud
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.ValueEditor.resources
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.HexBox.resources
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.About.resources
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Model Studio.exe.config
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Model Studio.exe
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Model Studio.pdb
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Model Studio.exe
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Model Studio.pdb
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.NewEntry.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Spark Model Editor.exe.config
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Spark Model Editor.exe
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Spark Model Editor.pdb
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.ChangeLog.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.FakeProgressBar.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Spark Model Editor.exe
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Spark Model Editor.pdb

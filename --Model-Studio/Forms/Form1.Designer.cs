@@ -35,6 +35,7 @@ namespace __Model_Studio
             this.ModelStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertToCSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,13 +43,12 @@ namespace __Model_Studio
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tESTINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EntryNodeTree = new System.Windows.Forms.TreeView();
             this.EntryStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewItemHexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.convertToCSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tESTINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModelStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.EntryStrip.SuspendLayout();
@@ -91,6 +91,14 @@ namespace __Model_Studio
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
+            // convertToCSMToolStripMenuItem
+            // 
+            this.convertToCSMToolStripMenuItem.Enabled = false;
+            this.convertToCSMToolStripMenuItem.Name = "convertToCSMToolStripMenuItem";
+            this.convertToCSMToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.convertToCSMToolStripMenuItem.Text = "Convert to CSM";
+            this.convertToCSMToolStripMenuItem.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -116,7 +124,7 @@ namespace __Model_Studio
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -124,7 +132,7 @@ namespace __Model_Studio
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -133,7 +141,7 @@ namespace __Model_Studio
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -154,6 +162,28 @@ namespace __Model_Studio
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // changeLogToolStripMenuItem
+            // 
+            this.changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
+            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changeLogToolStripMenuItem.Text = "Change log";
+            this.changeLogToolStripMenuItem.Click += new System.EventHandler(this.changeLogToolStripMenuItem_Click);
+            // 
+            // sourceCodeToolStripMenuItem
+            // 
+            this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
+            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sourceCodeToolStripMenuItem.Text = "Source Code";
+            this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
+            // 
+            // tESTINGToolStripMenuItem
+            // 
+            this.tESTINGToolStripMenuItem.Name = "tESTINGToolStripMenuItem";
+            this.tESTINGToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tESTINGToolStripMenuItem.Text = "TESTING";
+            this.tESTINGToolStripMenuItem.Visible = false;
+            this.tESTINGToolStripMenuItem.Click += new System.EventHandler(this.tESTINGToolStripMenuItem_Click);
             // 
             // EntryNodeTree
             // 
@@ -181,36 +211,6 @@ namespace __Model_Studio
             this.viewItemHexToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.viewItemHexToolStripMenuItem.Text = "View item hex";
             this.viewItemHexToolStripMenuItem.Click += new System.EventHandler(this.viewItemHexToolStripMenuItem_Click);
-            // 
-            // convertToCSMToolStripMenuItem
-            // 
-            this.convertToCSMToolStripMenuItem.Enabled = false;
-            this.convertToCSMToolStripMenuItem.Name = "convertToCSMToolStripMenuItem";
-            this.convertToCSMToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.convertToCSMToolStripMenuItem.Text = "Convert to CSM";
-            this.convertToCSMToolStripMenuItem.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem_Click);
-            // 
-            // changeLogToolStripMenuItem
-            // 
-            this.changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
-            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.changeLogToolStripMenuItem.Text = "Change log";
-            this.changeLogToolStripMenuItem.Click += new System.EventHandler(this.changeLogToolStripMenuItem_Click);
-            // 
-            // tESTINGToolStripMenuItem
-            // 
-            this.tESTINGToolStripMenuItem.Name = "tESTINGToolStripMenuItem";
-            this.tESTINGToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tESTINGToolStripMenuItem.Text = "TESTING";
-            this.tESTINGToolStripMenuItem.Visible = false;
-            this.tESTINGToolStripMenuItem.Click += new System.EventHandler(this.tESTINGToolStripMenuItem_Click);
-            // 
-            // sourceCodeToolStripMenuItem
-            // 
-            this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
-            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sourceCodeToolStripMenuItem.Text = "Source Code";
-            this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
             // 
             // Form1
             // 

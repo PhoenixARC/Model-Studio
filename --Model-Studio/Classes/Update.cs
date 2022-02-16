@@ -9,8 +9,8 @@ namespace __Model_Studio.Classes
 {
     class Update
     {
-        static string UpdateURL = "studio/Download/executable/SparkEditor-Setup.msi";
-        static string BetaUpdateURL = "studio/Download/executable/beta/SparkEditorBeta-Setup.msi";
+        static string UpdateURL = "Download/setup/SparkEditor-Setup.msi";
+        static string BetaUpdateURL = "Download/setup/beta/SparkEditorBeta-Setup.msi";
 
         public static void UpdateProgram(bool Beta)
         {
@@ -20,23 +20,25 @@ namespace __Model_Studio.Classes
                 Thread.CurrentThread.IsBackground = true;
                 fb.ShowDialog();
             });
+                string DLPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Temp\\";
             try
             {
-                string DLPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/Temp/";
+                Console.WriteLine(DLPath + "SparkEditorSetupBETA.msi");
                 switch (Beta)
                 {
                     case true:
                         thr.Start();
                         try
                         {
-                            DownloadFile(DLPath + "SparkEditorSetupBETA.msi", Classes.Network.MainURL + BetaUpdateURL);
-                            Process.Start(DLPath + "SparkEditorSetupBETA.msi");
+                            DownloadFile(DLPath + Path.GetFileName(Classes.Network.MainURL + BetaUpdateURL), Classes.Network.MainURL + BetaUpdateURL);
+                            Process.Start(DLPath + Path.GetFileName(Classes.Network.MainURL + BetaUpdateURL));
                             Application.Exit();
                         }
-                        catch
+                        catch(WebException ex)
                         {
-                            DownloadFile(DLPath + "SparkEditorSetupBETA.msi", Classes.Network.BackURL + BetaUpdateURL);
-                            Process.Start(DLPath + "SparkEditorSetupBETA.msi");
+                            Console.WriteLine(ex.Message);
+                            DownloadFile(DLPath + Path.GetFileName(Classes.Network.BackURL + BetaUpdateURL), Classes.Network.BackURL + BetaUpdateURL);
+                            Process.Start(DLPath + Path.GetFileName(Classes.Network.BackURL + BetaUpdateURL));
                             Application.Exit();
                         }
                         break;
@@ -44,14 +46,14 @@ namespace __Model_Studio.Classes
                         thr.Start();
                         try
                         {
-                            DownloadFile(DLPath + "SparkEditorSetup.msi", Classes.Network.MainURL + UpdateURL);
-                            Process.Start(DLPath + "SparkEditorSetup.msi");
+                            DownloadFile(DLPath + Path.GetFileName(Classes.Network.MainURL + UpdateURL), Classes.Network.MainURL + UpdateURL);
+                            Process.Start(DLPath + Path.GetFileName(Classes.Network.MainURL + UpdateURL));
                             Application.Exit();
                         }
                         catch
                         {
-                            DownloadFile(DLPath + "SparkEditorSetup.msi", Classes.Network.BackURL + UpdateURL);
-                            Process.Start(DLPath + "SparkEditorSetup.msi");
+                            DownloadFile(DLPath + Path.GetFileName(Classes.Network.BackURL + UpdateURL), Classes.Network.BackURL + UpdateURL);
+                            Process.Start(DLPath + Path.GetFileName(Classes.Network.BackURL + UpdateURL));
                             Application.Exit();
                         }
                         break;
@@ -64,11 +66,14 @@ namespace __Model_Studio.Classes
             }
         }
 
-        static void DownloadFile(string Path, string URL)
+        static void DownloadFile(string FillePath, string URL)
         {
-            WebClient wc = new WebClient();
-            wc.DownloadFile(Path, URL);
-            wc.Dispose();
+            string remoteUri = Path.GetDirectoryName(URL);
+
+            WebClient myWebClient = new WebClient();
+
+            //Console.WriteLine("myWebClient.DownloadFile("+URL+", "+FillePath+");");
+            myWebClient.DownloadFile(URL, FillePath);
         }
     }
 }

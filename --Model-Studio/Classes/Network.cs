@@ -13,10 +13,10 @@ namespace __Model_Studio.Classes
 {
     class Network
     {
-        static string Version = "0.2";
+        static string Version = "0.3";
         public static bool Beta = true;
         public static bool NeedsUpdate = false;
-        public static string MainURL = "https://pckstudio.xyz/";
+        public static string MainURL = "http://pckstudio.xyz/";
         public static string BackURL = "http://phoenixarc.ddns.net/";
         static string UpdateURL = "studio/Model/api/update.txt";
         static string BetaUpdateURL = "studio/Model/api/updateB.txt";
@@ -40,7 +40,7 @@ namespace __Model_Studio.Classes
                             {
                                 NeedsUpdate = true;
                             }
-                            File.WriteAllText(docuDir + "\\ModelStudio\\UserData\\Change.log", MainURL + "studio/Model/api/changelog.txt");
+                            File.WriteAllText(docuDir + "\\ModelStudio\\UserData\\Change.log", wc.DownloadString(MainURL + "studio/Model/api/changelog.txt"));
                         }
                         break;
                     case true:
@@ -54,7 +54,7 @@ namespace __Model_Studio.Classes
                             {
                                 NeedsUpdate = true;
                             }
-                            File.WriteAllText(docuDir + "\\ModelStudio\\UserData\\Change.log", MainURL + "studio/Model/api/changelogBeta.txt");
+                            File.WriteAllText(docuDir + "\\ModelStudio\\UserData\\Change.log", wc.DownloadString(MainURL + "studio/Model/api/changelogBeta.txt"));
                         }
                         break;
                 }
@@ -76,7 +76,7 @@ namespace __Model_Studio.Classes
                                 {
                                     NeedsUpdate = true;
                                 }
-                                File.WriteAllText(docuDir + "\\ModelStudio\\UserData\\Change.log", BackURL + "studio/Model/api/changelog.txt");
+                                File.WriteAllText(docuDir + "\\ModelStudio\\UserData\\Change.log", wc.DownloadString(BackURL + "studio/Model/api/changelog.txt"));
                             }
                             break;
                         case true:
@@ -90,7 +90,7 @@ namespace __Model_Studio.Classes
                                 {
                                     NeedsUpdate = true;
                                 }
-                                File.WriteAllText(docuDir + "\\ModelStudio\\UserData\\Change.log", BackURL + "studio/Model/api/changelogBeta.txt");
+                                File.WriteAllText(docuDir + "\\ModelStudio\\UserData\\Change.log", wc.DownloadString(BackURL + "studio/Model/api/changelogBeta.txt"));
                             }
                             break;
                     }
