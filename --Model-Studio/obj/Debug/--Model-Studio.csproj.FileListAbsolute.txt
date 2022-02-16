@@ -1,0 +1,24 @@
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\bin\Debug\--Model-Studio.exe.config
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\bin\Debug\--Model-Studio.exe
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\bin\Debug\--Model-Studio.pdb
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.AssemblyReference.cache
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Form1.resources
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Properties.Resources.resources
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.GenerateResource.cache
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.CoreCompileInputs.cache
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.exe
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.pdb
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.AssemblyReference.cache
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Form1.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Properties.Resources.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.GenerateResource.cache
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.CoreCompileInputs.cache
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.ValueEditor.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.HexBox.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.About.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Model Studio.exe.config
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Model Studio.exe
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Model Studio.pdb
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Model Studio.exe
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Model Studio.pdb
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.NewEntry.resources

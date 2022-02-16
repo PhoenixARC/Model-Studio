@@ -1,0 +1,1 @@
+../--Model-Studio/bin/Release/Spark Model Editor.exe

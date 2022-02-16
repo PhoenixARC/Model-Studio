@@ -1,0 +1,16 @@
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.AssemblyReference.cache
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.About.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Form1.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.HexBox.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.NewEntry.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.ValueEditor.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Properties.Resources.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.GenerateResource.cache
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.CoreCompileInputs.cache
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.ChangeLog.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.FakeProgressBar.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\Spark Model Editor.exe.config
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\Spark Model Editor.exe
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\Spark Model Editor.pdb
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\Spark Model Editor.exe
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\Spark Model Editor.pdb

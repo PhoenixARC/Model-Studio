@@ -1,0 +1,10 @@
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\bin\x64\Debug\--Model-Studio.exe.config
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\bin\x64\Debug\--Model-Studio.exe
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\bin\x64\Debug\--Model-Studio.pdb
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\x64\Debug\__Model_Studio.Form1.resources
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\x64\Debug\__Model_Studio.Properties.Resources.resources
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\x64\Debug\--Model-Studio.csproj.GenerateResource.cache
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\x64\Debug\--Model-Studio.csproj.CoreCompileInputs.cache
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\x64\Debug\--Model-Studio.exe
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\x64\Debug\--Model-Studio.pdb
+C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\x64\Debug\--Model-Studio.csproj.AssemblyReference.cache

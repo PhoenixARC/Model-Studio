@@ -1,0 +1,31 @@
+﻿-File Version or Signature or something (4 bytes) [this is always 00 00 00 01]
+-Amount of models (4 bytes) [do the next steps this amount of times]
+  -Model Name length (2 bytes)
+  -Model Name
+  -Texture Width (4 bytes) [Big endian Int]
+  -Texture Height (4 bytes) [Big endian Int]
+  -Amount of model parts (4 bytes) [do the next steps blah blah]
+    -Part Name length (2 bytes)
+    -Part Name
+	-BlankBuffer (4 bytes)
+    -Translation X (4 bytes) [This is a float which is why it looks really weird in the hex]
+    -Translation Y (4 bytes) [float]
+    -Translation Z (4 bytes) [float]
+    -Texture Offset? X (4 bytes) [float]
+    -Texture Offset? Y (4 bytes) [float]
+    -Rotation X (4 bytes) [float]
+    -Rotation Y (4 bytes) [float]
+    -Rotation Z (4 bytes) [float]
+    -Amount of boxes for the part (4 bytes) [you know by now lol]
+      -Position X (4 bytes) [float]
+      -Position Y (4 bytes) [float]
+      -Position Z (4 bytes) [float]
+      -Length (4 bytes) [Little endian Int]
+      -Height (4 bytes) [Little endian Int]
+      -Width (4 bytes) [Little endian Int]
+      -UV X (4 bytes) [float for some reason?]
+      -UV Y (4 bytes) [float for some reason?]
+      -Scale (4 bytes) [float]
+      (if there's more than one box, then the space between them is a single byte)
+
+      
