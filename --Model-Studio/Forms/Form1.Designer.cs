@@ -45,6 +45,7 @@ namespace __Model_Studio
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendABugReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tESTINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EntryNodeTree = new System.Windows.Forms.TreeView();
             this.EntryStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -56,6 +57,7 @@ namespace __Model_Studio
             // 
             // FileNodeTree
             // 
+            this.FileNodeTree.AllowDrop = true;
             this.FileNodeTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.FileNodeTree.ContextMenuStrip = this.ModelStrip;
@@ -65,6 +67,8 @@ namespace __Model_Studio
             this.FileNodeTree.Size = new System.Drawing.Size(243, 576);
             this.FileNodeTree.TabIndex = 0;
             this.FileNodeTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.FileNodeTree.DragDrop += new System.Windows.Forms.DragEventHandler(this.FileNodeTree_DragDrop);
+            this.FileNodeTree.DragEnter += new System.Windows.Forms.DragEventHandler(this.FileNodeTree_DragEnter);
             // 
             // ModelStrip
             // 
@@ -151,6 +155,7 @@ namespace __Model_Studio
             this.aboutToolStripMenuItem,
             this.changeLogToolStripMenuItem,
             this.sourceCodeToolStripMenuItem,
+            this.sendABugReportToolStripMenuItem,
             this.tESTINGToolStripMenuItem});
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
@@ -159,34 +164,42 @@ namespace __Model_Studio
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // changeLogToolStripMenuItem
             // 
             this.changeLogToolStripMenuItem.Name = "changeLogToolStripMenuItem";
-            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changeLogToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.changeLogToolStripMenuItem.Text = "Change log";
             this.changeLogToolStripMenuItem.Click += new System.EventHandler(this.changeLogToolStripMenuItem_Click);
             // 
             // sourceCodeToolStripMenuItem
             // 
             this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
-            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.sourceCodeToolStripMenuItem.Text = "Source Code";
             this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
+            // 
+            // sendABugReportToolStripMenuItem
+            // 
+            this.sendABugReportToolStripMenuItem.Name = "sendABugReportToolStripMenuItem";
+            this.sendABugReportToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.sendABugReportToolStripMenuItem.Text = "Send a bug report";
+            this.sendABugReportToolStripMenuItem.Click += new System.EventHandler(this.sendABugReportToolStripMenuItem_Click);
             // 
             // tESTINGToolStripMenuItem
             // 
             this.tESTINGToolStripMenuItem.Name = "tESTINGToolStripMenuItem";
-            this.tESTINGToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tESTINGToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.tESTINGToolStripMenuItem.Text = "TESTING";
             this.tESTINGToolStripMenuItem.Visible = false;
             this.tESTINGToolStripMenuItem.Click += new System.EventHandler(this.tESTINGToolStripMenuItem_Click);
             // 
             // EntryNodeTree
             // 
+            this.EntryNodeTree.AllowDrop = true;
             this.EntryNodeTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -196,6 +209,8 @@ namespace __Model_Studio
             this.EntryNodeTree.Name = "EntryNodeTree";
             this.EntryNodeTree.Size = new System.Drawing.Size(454, 576);
             this.EntryNodeTree.TabIndex = 2;
+            this.EntryNodeTree.DragDrop += new System.Windows.Forms.DragEventHandler(this.FileNodeTree_DragDrop);
+            this.EntryNodeTree.DragEnter += new System.Windows.Forms.DragEventHandler(this.FileNodeTree_DragEnter);
             this.EntryNodeTree.DoubleClick += new System.EventHandler(this.EntryNodeTree_AfterSelect);
             // 
             // EntryStrip
@@ -214,6 +229,7 @@ namespace __Model_Studio
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 630);
@@ -225,6 +241,8 @@ namespace __Model_Studio
             this.Name = "Form1";
             this.Text = "Spark Model Editor";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FileNodeTree_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FileNodeTree_DragEnter);
             this.ModelStrip.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -254,6 +272,7 @@ namespace __Model_Studio
         private System.Windows.Forms.ToolStripMenuItem changeLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tESTINGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sourceCodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sendABugReportToolStripMenuItem;
     }
 }
 

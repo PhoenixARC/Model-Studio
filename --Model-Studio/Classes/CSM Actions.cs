@@ -97,5 +97,71 @@ namespace __Model_Studio.Classes
             File.WriteAllText(OutputFilePath, OutputCSM);
 
         }
+
+        public static void CSMToModel(string InputFilePath, TreeNode Modelnode)
+        {
+            string OutputCSM = "";
+
+
+            //Create list of CSM Boxes
+            string[] CSMData = File.ReadAllText(InputFilePath).Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            int NumOfLines = CSMData.Length / 11;
+
+            int x = 0;
+            List<string> CSMLines = new List<string>();
+
+            while (x < NumOfLines)
+            {
+                CSMLines.Add(String.Join("\n", CSMData.Skip(11 * x).Take(11).ToArray()));
+                x++;
+            }
+
+
+
+            int i = 0;
+            foreach (TreeNode tn1 in Modelnode.Nodes)
+            {
+
+                byte[] GroupData = StringToByteArrayFastest(tn1.Tag.ToString().Replace("-", ""));
+
+
+                byte[] partNameLength = GroupData.Skip(0).Take(2).Reverse().ToArray();
+                byte[] partName = GroupData.Skip(2).Take(BitConverter.ToUInt16(partNameLength, 0)).ToArray();
+
+                string name = Encoding.Default.GetString(partName);
+                foreach (TreeNode tn2 in tn1.Nodes)
+                {
+                    OutputCSM += name + i + " BODY " + name + i + " ";
+
+
+                    byte[] ElementData = StringToByteArrayFastest(tn2.Tag.ToString().Replace("-", ""));
+
+
+                    byte[] PositionX = ElementData.Skip(0).Take(4).Reverse().ToArray();
+                    byte[] PositionY = ElementData.Skip(4).Take(4).Reverse().ToArray();
+                    byte[] PositionZ = ElementData.Skip(8).Take(4).Reverse().ToArray();
+                    byte[] BoxLength = ElementData.Skip(12).Take(4).Reverse().ToArray();
+                    byte[] BoxHeight = ElementData.Skip(16).Take(4).Reverse().ToArray();
+                    byte[] BoxWidth = ElementData.Skip(20).Take(4).Reverse().ToArray();
+                    byte[] UvX = ElementData.Skip(24).Take(4).Reverse().ToArray();
+                    byte[] UvY = ElementData.Skip(28).Take(4).Reverse().ToArray();
+                    byte[] Scale = ElementData.Skip(32).Take(4).Reverse().ToArray();
+
+                    OutputCSM += BitConverter.ToSingle(PositionX, 0) + " ";
+                    OutputCSM += BitConverter.ToSingle(PositionY, 0) + " ";
+                    OutputCSM += BitConverter.ToSingle(PositionZ, 0) + " ";
+                    OutputCSM += BitConverter.ToInt32(BoxLength, 0) + " ";
+                    OutputCSM += BitConverter.ToInt32(BoxHeight, 0) + " ";
+                    OutputCSM += BitConverter.ToInt32(BoxWidth, 0) + " ";
+                    OutputCSM += BitConverter.ToSingle(UvX, 0) + " ";
+                    OutputCSM += BitConverter.ToSingle(UvY, 0) + "\n";
+
+                    i++;
+
+                }
+            }
+            //File.WriteAllText(OutputFilePath, OutputCSM);
+        }
     }
 }

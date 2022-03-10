@@ -170,7 +170,14 @@ namespace __Model_Studio
             }
             else
                 OpenModels();
-            FileNodeTree.SelectedNode = FileNodeTree.Nodes[0];
+            try
+            {
+                FileNodeTree.SelectedNode = FileNodeTree.Nodes[0];
+            }
+            catch
+            {
+
+            }
 
         }
 
@@ -311,7 +318,14 @@ namespace __Model_Studio
                 saveToolStripMenuItem.Enabled = true;
                 HasFileOpen = true;
             }
-            FileNodeTree.SelectedNode = FileNodeTree.Nodes[0];
+            try
+            {
+                FileNodeTree.SelectedNode = FileNodeTree.Nodes[0];
+            }
+            catch
+            {
+
+            }
         }
 
         private void convertToCSMToolStripMenuItem_Click(object sender, EventArgs e)
@@ -340,6 +354,53 @@ namespace __Model_Studio
             System.Diagnostics.Process.Start("https://github.com/PhoenixARC/Model-Studio");
         }
 
+        private void sendABugReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string ver = Application.ProductVersion;
+            string trace = Environment.StackTrace;
+            string link = "mailto:phoenixarc.canarynotifs@gmail.com?subject=Spark%20Model%20Editor%20BUGREPORT&body=Version%3A%20$s%0A%0AStack%20Trace%3A%0A$b";
+            System.Diagnostics.Process.Start(link.Replace("$s", ver).Replace("$b", trace));
+        }
+
         #endregion
+
+        private void FileNodeTree_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            if (HasFileOpen)
+            {
+                if (MessageBox.Show("You have an open model!\ndo you want to discard it?", "Warning!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    FileNodeTree.Nodes.Clear();
+                    EntryNodeTree.Nodes.Clear();
+                    mf.OpenModel(files[0], FileNodeTree, EntryNodeTree);
+                    saveToolStripMenuItem.Enabled = true;
+                    HasFileOpen = true;
+                }
+            }
+            else
+            {
+                FileNodeTree.Nodes.Clear();
+                EntryNodeTree.Nodes.Clear();
+                mf.OpenModel(files[0], FileNodeTree, EntryNodeTree);
+                saveToolStripMenuItem.Enabled = true;
+                HasFileOpen = true;
+            }
+            try
+            {
+                FileNodeTree.SelectedNode = FileNodeTree.Nodes[0];
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void FileNodeTree_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+        }
     }
 }

@@ -13,8 +13,8 @@ namespace __Model_Studio.Classes
 {
     class Network
     {
-        static string Version = "0.3";
-        public static bool Beta = true;
+        static string Version = "1.0";
+        public static bool Beta = false;
         public static bool NeedsUpdate = false;
         public static string MainURL = "http://pckstudio.xyz/";
         public static string BackURL = "http://phoenixarc.ddns.net/";

@@ -1,6 +1,6 @@
 obj\Release\Product.wixobj
-C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Release\ModelStudio.Installer.msi
-C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Release\ModelStudio.Installer.wixpdb
 obj\Release\Model-Studio-Setup.wixproj.BindContentsFileListnull.txt
 obj\Release\Model-Studio-Setup.wixproj.BindOutputsFileListnull.txt
 obj\Release\Model-Studio-Setup.wixproj.BindBuiltOutputsFileListnull.txt
+C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Release\SparkEditor-Setup.msi
+C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Release\SparkEditor-Setup.wixpdb

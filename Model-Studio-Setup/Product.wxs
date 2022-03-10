@@ -3,7 +3,7 @@
   <Product Id="*"
            Name="Spark Model Editor"
            Language="1033"
-           Version="1.0.0.0"
+           Version="1.0.0.4"
            Manufacturer="PhoenixARC"
            UpgradeCode="b1d0c438-89c6-4676-a5ac-ecc7beda4867">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />

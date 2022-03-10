@@ -1,2 +1,2 @@
-C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Debug\ModelStudio.Installer.msi
-C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Debug\ModelStudio.Installer.wixpdb
+C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Debug\SparkEditor-Setup.msi
+C:\Users\phoen\source\repos\##Model-Studio\Model-Studio-Setup\bin\Debug\SparkEditor-Setup.wixpdb
