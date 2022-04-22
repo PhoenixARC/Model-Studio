@@ -14,3 +14,10 @@ C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\Spark Mode
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\Spark Model Editor.pdb
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\Spark Model Editor.exe
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\Spark Model Editor.pdb
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\MoreLinq.dll
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\System.ValueTuple.dll
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\MoreLinq.pdb
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\MoreLinq.xml
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\System.ValueTuple.xml
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.SuggestedBindingRedirects.cache
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.CopyComplete

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace __Model_Studio
 {
@@ -17,7 +19,77 @@ namespace __Model_Studio
         #region Variables
 
         ModelsBin.ModelFile mf = new ModelsBin.ModelFile();
+        ModelsWorker.model.ModelContainer MCon = new ModelsWorker.model.ModelContainer();
+        ModelsWorker.ModelParser ModelParser = new ModelsWorker.ModelParser();
+        ModelsWorker.ModelBuilder ModelBuilder = new ModelsWorker.ModelBuilder();
         bool HasFileOpen = false;
+
+
+        static string[] IconSheetIndex =
+{"unknown",
+"creeper",
+"skeleton",
+"spider",
+"zombie",
+"slime",
+"ghast",
+"pigzombie",
+"enderman",
+"cavespider",
+"silverfish",
+"blaze",
+"lavaslime",
+"enderdragon",
+"witherBoss",
+"bat",
+"villager.witch",
+"endermite",
+"guardian",
+"shulker",
+"pig",
+"sheep",
+"cow",
+"chicken",
+"squid",
+"wolf",
+"redcow",
+"snowgolem",
+"ocelot",
+"irongolem",
+"horse",
+"donkey",
+"mule",
+"skeletonhorse",
+"zombiehorse",
+"rabbit",
+"polarbear",
+"llama",
+"parrot",
+"villager",
+"vindicator",
+"evoker",
+"vex",
+"skeleton.stray",
+"illusioner",
+"endcrystal",
+"zombie.villager",
+"elderguardian",
+"zombie.husk",
+"skeleton.wither",
+"package",
+"folder",
+"single",
+"float",
+"text",
+"integer",
+"dolphin",
+"dragon",
+"trident",
+"boat",
+"minecart",
+"dragon_head",
+"creeper_head",
+"sheep.sheared"};
 
         #endregion
 
@@ -32,7 +104,9 @@ namespace __Model_Studio
             {
                 FileNodeTree.Nodes.Clear();
                 EntryNodeTree.Nodes.Clear();
-                mf.OpenModel(opf.FileName, FileNodeTree, EntryNodeTree);
+                //mf.OpenModel(opf.FileName, FileNodeTree, EntryNodeTree);
+                MCon = ModelParser.Parse(opf.FileName);
+                GetNodes(FileNodeTree, EntryNodeTree);
                 saveToolStripMenuItem.Enabled = true;
                 HasFileOpen = true;
             }
@@ -149,6 +223,105 @@ namespace __Model_Studio
                     break;
             }
 
+        }
+
+        private static int GetIndex(string nom)
+        {
+            //Console.WriteLine(nom + " -- " + Array.IndexOf(IconSheetIndex, nom));
+            return Array.IndexOf(IconSheetIndex, nom);
+        }
+
+        public void GetNodes(TreeView treeView0, TreeView treeView1)
+        {
+
+
+            #region AddImageList
+
+            // Get the inputs.
+            Bitmap bm = (Bitmap)Properties.Resources.mobs;
+            int wid = 32;
+            int hgt = 32;
+
+
+            ImageList imageList = new ImageList();
+            imageList.ColorDepth = ColorDepth.Depth32Bit;
+            imageList.ImageSize = new Size(20, 20);
+
+
+            // Start splitting the Bitmap.
+            Bitmap piece = new Bitmap(wid, hgt);
+            Rectangle dest_rect = new Rectangle(0, 0, wid, hgt);
+            using (Graphics gr = Graphics.FromImage(piece))
+            {
+                int num_rows = bm.Height / hgt;
+                int num_cols = bm.Width / wid;
+                Rectangle source_rect = new Rectangle(0, 0, wid, hgt);
+                for (int row = 0; row < num_rows; row++)
+                {
+                    source_rect.X = 0;
+                    for (int col = 0; col < num_cols; col++)
+                    {
+                        // Copy the piece of the image.
+                        gr.Clear(Color.Transparent);
+                        gr.DrawImage(bm, dest_rect, source_rect,
+                            GraphicsUnit.Pixel);
+
+                        // Save the piece.
+                        MemoryStream ms = new MemoryStream();
+                        piece.Save(ms, ImageFormat.Png);
+                        Image imag = Image.FromStream(ms);
+                        imageList.Images.Add(imag);
+
+                        // Move to the next column.
+                        source_rect.X += wid;
+                    }
+                    source_rect.Y += hgt;
+                }
+            }
+            Console.WriteLine(imageList.Images.Count + "--");
+            treeView0.ImageList = imageList;
+            treeView1.ImageList = imageList;
+
+            #endregion
+
+            TreeNode treeNode = new TreeNode();
+            treeNode.Text = "Models.bin [" + MCon.models.Count + " Models]";
+
+            treeNode.ImageIndex = GetIndex("package");
+            treeNode.SelectedImageIndex = GetIndex("package");
+
+            foreach (KeyValuePair<string, ModelsWorker.model.ModelPiece> Piece in MCon.models)
+            {
+                TreeNode treeNodeModel = new TreeNode(Piece.Key);
+                treeNodeModel.Text = Piece.Key.ToString();
+                treeNodeModel.ImageIndex = GetIndex(Piece.Key.ToString());
+                treeNodeModel.SelectedImageIndex = GetIndex(Piece.Key.ToString());
+
+                foreach (KeyValuePair<string, ModelsWorker.model.ModelPart> Part in Piece.Value.Parts)
+                {
+                    TreeNode treeNodeModelPiece = new TreeNode(Part.Key);
+                    treeNodeModelPiece.Text = Part.Key.ToString();
+                    treeNodeModelPiece.ImageIndex = GetIndex(Part.Key.ToString());
+                    treeNodeModelPiece.SelectedImageIndex = GetIndex(Part.Key.ToString());
+
+
+                    foreach (KeyValuePair<string, ModelsWorker.model.ModelBox> Box in Part.Value.Boxes)
+                    {
+                        TreeNode treeNodeModelPieceBox = new TreeNode();
+                        treeNodeModelPieceBox.Text = "Box " + Box.Key.ToString();
+                        treeNodeModelPieceBox.ImageIndex = GetIndex(Part.Key.ToString());
+                        treeNodeModelPieceBox.SelectedImageIndex = GetIndex(Part.Key.ToString());
+
+                        treeNodeModelPiece.Nodes.Add(treeNodeModelPieceBox);
+                    }
+
+                    treeNodeModel.Nodes.Add(treeNodeModelPiece);
+                }
+
+                treeNode.Nodes.Add(treeNodeModel);
+            }
+
+            treeView0.Nodes.Add(treeNode);
         }
 
         #endregion

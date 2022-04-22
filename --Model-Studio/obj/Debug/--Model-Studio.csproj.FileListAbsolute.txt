@@ -24,3 +24,10 @@ C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Stud
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.FakeProgressBar.resources
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Spark Model Editor.exe
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Spark Model Editor.pdb
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\MoreLinq.dll
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\System.ValueTuple.dll
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\MoreLinq.pdb
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\MoreLinq.xml
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\System.ValueTuple.xml
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.SuggestedBindingRedirects.cache
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.CopyComplete

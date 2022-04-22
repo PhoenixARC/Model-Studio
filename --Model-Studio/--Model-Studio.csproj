@@ -98,8 +98,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ArraySupport.cs" />
     <Compile Include="Classes\CSM Actions.cs" />
     <Compile Include="Classes\JSONActions.cs" />
+    <Compile Include="Classes\ModelsWorker\ModelBuilder.cs" />
+    <Compile Include="Classes\ModelsWorker\ModelParser.cs" />
+    <Compile Include="Classes\ModelsWorker\model\ModelContainer.cs" />
+    <Compile Include="Classes\ModelsWorker\model\ModelPiece.cs" />
     <Compile Include="Classes\Network.cs" />
     <Compile Include="Classes\Update.cs" />
     <Compile Include="Classes\UserInteraction.cs" />
