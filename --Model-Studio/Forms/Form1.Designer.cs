@@ -77,13 +77,13 @@ namespace __Model_Studio
             this.removeToolStripMenuItem,
             this.convertToCSMToolStripMenuItem});
             this.ModelStrip.Name = "ModelStrip";
-            this.ModelStrip.Size = new System.Drawing.Size(159, 70);
+            this.ModelStrip.Size = new System.Drawing.Size(181, 92);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Enabled = false;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
@@ -91,7 +91,7 @@ namespace __Model_Studio
             // 
             this.removeToolStripMenuItem.Enabled = false;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -99,8 +99,9 @@ namespace __Model_Studio
             // 
             this.convertToCSMToolStripMenuItem.Enabled = false;
             this.convertToCSMToolStripMenuItem.Name = "convertToCSMToolStripMenuItem";
-            this.convertToCSMToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.convertToCSMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.convertToCSMToolStripMenuItem.Text = "Convert to CSM";
+            this.convertToCSMToolStripMenuItem.Visible = false;
             this.convertToCSMToolStripMenuItem.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem_Click);
             // 
             // menuStrip1
@@ -128,7 +129,7 @@ namespace __Model_Studio
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -136,7 +137,7 @@ namespace __Model_Studio
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -145,7 +146,7 @@ namespace __Model_Studio
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 

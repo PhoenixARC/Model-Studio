@@ -15,34 +15,39 @@ namespace __Model_Studio.Forms
 {
     public partial class ValueEditor : Form
     {
-        public ValueEditor(TreeNode tn, int mode)
+        public ValueEditor(TreeNode tn, int mode, List<byte[]> EntryDataList, int index)
         {
             InitializeComponent();
             Node = tn;
             NodeMode = mode;
+            EntryList = EntryDataList;
+            data = EntryDataList[index];
+            this.index = index;
             Init(mode);
         }
 
         public TreeNode Node;
         public int NodeMode;
         public bool LittleEndianInt = false;
-
+        List<byte[]> EntryList;
+        byte[] data = null;
+        int index = 0;
         public void Init(int mode)
         {
             textBox1.Enabled = true;
             switch (mode)
             {
                 case 1:
-                    textBox1.Text = BitConverter.ToSingle(StringToByteArrayFastest(Node.Tag.ToString().Replace("-", "")), 0).ToString();
+                    textBox1.Text = BitConverter.ToSingle(data, 0).ToString();
                     break;
                 case 2:
-                    if (BitConverter.ToInt32(StringToByteArrayFastest(Node.Tag.ToString().Replace("-", "")).ToArray(), 0) > 1000)
+                    if (BitConverter.ToInt32(data, 0) > 1000)
                     {
-                        textBox1.Text = BitConverter.ToInt32(StringToByteArrayFastest(Node.Tag.ToString().Replace("-", "")).Reverse().ToArray(), 0).ToString();
+                        textBox1.Text = BitConverter.ToInt32(data.Reverse().ToArray(), 0).ToString();
                         LittleEndianInt = true;
                     }
                     else
-                        textBox1.Text = BitConverter.ToInt32(StringToByteArrayFastest(Node.Tag.ToString().Replace("-", "")).ToArray(), 0).ToString();
+                        textBox1.Text = BitConverter.ToInt32(data, 0).ToString();
                     break;
             }
         }
@@ -105,16 +110,24 @@ namespace __Model_Studio.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string Param = Node.Text.Split(':')[0];
             if (NodeMode == 1)
-                Node.Tag = BitConverter.ToString(BitConverter.GetBytes(float.Parse(textBox1.Text)).ToArray());
+            {
+                Node.Text = Param + ": " + textBox1.Text;
+                EntryList[index] = BitConverter.GetBytes(float.Parse(textBox1.Text)).ToArray();
+            }
             else if (NodeMode == 2)
             {
+                Node.Text = Param + ": " + textBox1.Text;
                 if (!LittleEndianInt)
-                    Node.Tag = BitConverter.ToString(BitConverter.GetBytes(Int32.Parse(textBox1.Text)).ToArray());
+                {
+                    EntryList[index] = BitConverter.GetBytes(Int32.Parse(textBox1.Text)).ToArray();
+                }
                 else
-                    Node.Tag = BitConverter.ToString(BitConverter.GetBytes(Int32.Parse(textBox1.Text)).Reverse().ToArray());
+                {
+                    EntryList[index] = BitConverter.GetBytes(Int32.Parse(textBox1.Text)).ToArray();
+                }
             }
-            Node.Text = Node.Text.Split(':')[0] + ": " + textBox1.Text;
             this.Close();
         }
 

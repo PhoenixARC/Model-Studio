@@ -51,10 +51,10 @@ namespace __Model_Studio.Forms
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(176, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 140);
+            this.label1.Size = new System.Drawing.Size(293, 140);
             this.label1.TabIndex = 1;
             this.label1.Text = "Spark Model Editor\r\n\r\nVersion: %s\r\n\r\nAuthor: PhoenixARC\r\n\r\nModels.bin research by" +
-    " MattNL";
+    " Matt/MayNL";
             // 
             // About
             // 

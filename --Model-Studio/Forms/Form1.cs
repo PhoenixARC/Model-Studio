@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.IO;
+using ModelsWorker.model;
+using ModelsWorker;
+using RavSoft.GoogleTranslator;
 
 namespace __Model_Studio
 {
@@ -18,10 +21,12 @@ namespace __Model_Studio
 
         #region Variables
 
+        Translator tl = new Translator();
         ModelsBin.ModelFile mf = new ModelsBin.ModelFile();
-        ModelsWorker.model.ModelContainer MCon = new ModelsWorker.model.ModelContainer();
-        ModelsWorker.ModelParser ModelParser = new ModelsWorker.ModelParser();
-        ModelsWorker.ModelBuilder ModelBuilder = new ModelsWorker.ModelBuilder();
+        ModelContainer MCon = new ModelContainer();
+        ModelParser ModelParser = new ModelParser();
+        ModelBuilder ModelBuilder = new ModelBuilder();
+        List<byte[]> EntryData = new List<byte[]>();
         bool HasFileOpen = false;
 
 
@@ -110,6 +115,7 @@ namespace __Model_Studio
                 saveToolStripMenuItem.Enabled = true;
                 HasFileOpen = true;
             }
+            FileNodeTree.Nodes[0].Expand();
         }
 
         public void SaveModels()
@@ -324,6 +330,113 @@ namespace __Model_Studio
             treeView0.Nodes.Add(treeNode);
         }
 
+        public void GetNodeData(TreeNode Node, int NodeLevel)
+        {
+            ModelBox box = new ModelBox();
+            ModelPart part = new ModelPart();
+            ModelPiece piece = new ModelPiece();
+
+            string[] Path = Node.FullPath.Split(new[] { "\\" }, StringSplitOptions.None);
+            Console.WriteLine(Node.FullPath);
+
+            switch (NodeLevel)
+            {
+                case 4:
+                    MCon.models.TryGetValue(Path[1], out piece);
+                    piece.Parts.TryGetValue(Path[2], out part);
+                    part.Boxes.TryGetValue(Path[3].Split(' ')[1], out box);
+                    ReadPieceToNode(NodeLevel, box, part, piece);
+                    break;
+                case 3:
+                    MCon.models.TryGetValue(Path[1], out piece);
+                    piece.Parts.TryGetValue(Path[2], out part);
+                    ReadPieceToNode(NodeLevel, box, part, piece);
+                    break;
+                case 2:
+                    MCon.models.TryGetValue(Path[1], out piece);
+                    ReadPieceToNode(NodeLevel, box, part, piece);
+                    break;
+            }
+        }
+
+        public void ReadPieceToNode(int NodeLevel, ModelBox box, ModelPart part, ModelPiece piece)
+        {
+
+            TreeNode TN0 = new TreeNode();
+            TN0.ImageIndex = GetIndex("package");
+            TN0.SelectedImageIndex = GetIndex("package");
+            EntryData.Clear();
+            switch (NodeLevel)
+            {
+                case 2:
+                    TN0.Text = "MODEL";
+                    AddNode(TN0, "TextureWidth : " + piece.TextureWidth, "integer");
+                    AddNode(TN0, "TextureHeight : " + piece.TextureHeight, "integer");
+                    EntryData.Add(BitConverter.GetBytes(piece.TextureWidth));
+                    EntryData.Add(BitConverter.GetBytes(piece.TextureHeight));
+                    break;
+                case 3:
+                    TN0.Text = "PART";
+                    AddNode(TN0, "TranslationX : " + part.TranslationX, "float");
+                    AddNode(TN0, "TranslationY : " + part.TranslationY, "float");
+                    AddNode(TN0, "TranslationZ : " + part.TranslationZ, "float");
+                    AddNode(TN0, "TextureOffsetX : " + part.TextureOffsetX, "float");
+                    AddNode(TN0, "TextureOffsetY : " + part.TextureOffsetY, "float");
+                    AddNode(TN0, "RotationX : " + part.RotationX, "float");
+                    AddNode(TN0, "RotationY : " + part.RotationY, "float");
+                    AddNode(TN0, "RotationZ : " + part.RotationZ, "float");
+                    EntryData.Add(BitConverter.GetBytes(part.TranslationX));
+                    EntryData.Add(BitConverter.GetBytes(part.TranslationY));
+                    EntryData.Add(BitConverter.GetBytes(part.TranslationZ));
+                    EntryData.Add(BitConverter.GetBytes(part.TextureOffsetX));
+                    EntryData.Add(BitConverter.GetBytes(part.TextureOffsetY));
+                    EntryData.Add(BitConverter.GetBytes(part.RotationX));
+                    EntryData.Add(BitConverter.GetBytes(part.RotationY));
+                    EntryData.Add(BitConverter.GetBytes(part.RotationZ));
+                    break;
+                case 4:
+                    TN0.Text = "BOX";
+                    AddNode(TN0, "PositionX : " + box.PositionX, "float");
+                    AddNode(TN0, "PositionY : " + box.PositionY, "float");
+                    AddNode(TN0, "PositionZ : " + box.PositionZ, "float");
+                    AddNode(TN0, "Length : " + box.Length, "integer");
+                    AddNode(TN0, "Width : " + box.Width, "integer");
+                    AddNode(TN0, "Height : " + box.Height, "integer");
+                    AddNode(TN0, "UvX : " + box.UvX, "float");
+                    AddNode(TN0, "UvY : " + box.UvY, "float");
+                    AddNode(TN0, "Scale : " + box.Scale, "float");
+                    EntryData.Add(BitConverter.GetBytes(box.PositionX));
+                    EntryData.Add(BitConverter.GetBytes(box.PositionY));
+                    EntryData.Add(BitConverter.GetBytes(box.PositionZ));
+                    EntryData.Add(BitConverter.GetBytes(box.Length));
+                    EntryData.Add(BitConverter.GetBytes(box.Height));
+                    EntryData.Add(BitConverter.GetBytes(box.Width));
+                    EntryData.Add(BitConverter.GetBytes(box.UvX));
+                    EntryData.Add(BitConverter.GetBytes(box.UvY));
+                    EntryData.Add(BitConverter.GetBytes(box.Scale));
+                    break;
+            }
+
+            EntryNodeTree.Nodes.Add(TN0);
+            TN0.Expand();
+        }
+
+        public void AddNode(TreeNode AttachNode, string text, string icon)
+        {
+            TreeNode TN1 = new TreeNode();
+            TN1.Text = text;
+            TN1.ImageIndex = GetIndex(icon);
+            TN1.SelectedImageIndex = GetIndex(icon);
+            AttachNode.Nodes.Add(TN1);
+
+        }
+
+        public static int GetNodeparents(TreeNode tn)
+        {
+            Console.WriteLine("NodeLevel - " + tn.FullPath.Split(new[] { "\\" }, StringSplitOptions.None).Length);
+            return tn.FullPath.Split(new[] { "\\" }, StringSplitOptions.None).Length;
+        }
+
         #endregion
 
         #region Form Functions
@@ -356,32 +469,30 @@ namespace __Model_Studio
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            int g = ModelsBin.GetNodeparents(FileNodeTree.SelectedNode);
-            if(g == 4)
+            EntryNodeTree.Nodes.Clear();
+            int g = GetNodeparents(FileNodeTree.SelectedNode);
+            if(g == 4) // BOX
             {
-                ModelsBin.ModelBox mb = new ModelsBin.ModelBox();
-                mb.SetTreeData(StringToByteArrayFastest(FileNodeTree.SelectedNode.Tag.ToString().Replace("-","")), EntryNodeTree) ;
+                GetNodeData(FileNodeTree.SelectedNode, g);
                 ModelStrip.Items[0].Enabled = false;
                 ModelStrip.Items[1].Enabled = true;
                 ModelStrip.Items[2].Enabled = false;
             }
-            if(g == 3)
+            if(g == 3) // PART
             {
-                ModelsBin.ModelPart mb = new ModelsBin.ModelPart();
-                mb.SetTreeData(StringToByteArrayFastest(FileNodeTree.SelectedNode.Tag.ToString().Replace("-","")), EntryNodeTree);
+                GetNodeData(FileNodeTree.SelectedNode, g);
                 ModelStrip.Items[0].Enabled = true;
                 ModelStrip.Items[1].Enabled = true;
                 ModelStrip.Items[2].Enabled = false;
             }
-            if(g == 2)
+            if(g == 2) // MODEL
             {
-                ModelsBin.ModelName mb = new ModelsBin.ModelName();
-                mb.SetTreeData(StringToByteArrayFastest(FileNodeTree.SelectedNode.Tag.ToString().Replace("-","")), EntryNodeTree);
+                GetNodeData(FileNodeTree.SelectedNode, g);
                 ModelStrip.Items[0].Enabled = true;
                 ModelStrip.Items[1].Enabled = true;
                 ModelStrip.Items[2].Enabled = true;
             }
-            if(g == 1)
+            if(g == 1) // FILE
             {
                 ModelStrip.Items[0].Enabled = true;
                 ModelStrip.Items[1].Enabled = false;
@@ -394,15 +505,57 @@ namespace __Model_Studio
 
             if (EntryNodeTree.SelectedNode.ImageIndex == 53)
             {
-                Forms.ValueEditor ve = new Forms.ValueEditor(EntryNodeTree.SelectedNode, 1);
+                Forms.ValueEditor ve = new Forms.ValueEditor(EntryNodeTree.SelectedNode, 1, EntryData, EntryNodeTree.SelectedNode.Index);
                 ve.ShowDialog();
-                RebuildFileNode();
+                //RebuildFileNode();
             }
             else if (EntryNodeTree.SelectedNode.ImageIndex == 55)
             {
-                Forms.ValueEditor ve = new Forms.ValueEditor(EntryNodeTree.SelectedNode, 2);
+                Forms.ValueEditor ve = new Forms.ValueEditor(EntryNodeTree.SelectedNode, 2, EntryData, EntryNodeTree.SelectedNode.Index);
                 ve.ShowDialog();
-                RebuildFileNode();
+                //RebuildFileNode();
+            }
+
+
+            ModelBox box = new ModelBox();
+            ModelPart part = new ModelPart();
+            ModelPiece piece = new ModelPiece();
+
+            string[] Path = FileNodeTree.SelectedNode.FullPath.Split(new[] { "\\" }, StringSplitOptions.None);
+
+            switch (EntryNodeTree.Nodes[0].Text)
+            {
+                case "MODEL":
+                    MCon.models.TryGetValue(Path[1], out piece);
+                    piece.TextureWidth = BitConverter.ToInt32(EntryData[0], 0);
+                    piece.TextureHeight = BitConverter.ToInt32(EntryData[1], 0);
+                    break;
+                case "PART":
+                    MCon.models.TryGetValue(Path[1], out piece);
+                    piece.Parts.TryGetValue(Path[2], out part);
+                    part.TranslationX = BitConverter.ToInt32(EntryData[0], 0);
+                    part.TranslationY = BitConverter.ToInt32(EntryData[1], 0);
+                    part.TranslationZ = BitConverter.ToInt32(EntryData[2], 0);
+                    part.TextureOffsetX = BitConverter.ToInt32(EntryData[3], 0);
+                    part.TextureOffsetY = BitConverter.ToInt32(EntryData[4], 0);
+                    part.RotationX = BitConverter.ToInt32(EntryData[5], 0);
+                    part.RotationY = BitConverter.ToInt32(EntryData[6], 0);
+                    part.RotationZ = BitConverter.ToInt32(EntryData[7], 0);
+                    break;
+                case "BOX":
+                    MCon.models.TryGetValue(Path[1], out piece);
+                    piece.Parts.TryGetValue(Path[2], out part);
+                    part.Boxes.TryGetValue(Path[3].Split(' ')[1], out box);
+                    box.PositionX = BitConverter.ToInt32(EntryData[0], 0);
+                    box.PositionY = BitConverter.ToInt32(EntryData[1], 0);
+                    box.PositionZ = BitConverter.ToInt32(EntryData[2], 0);
+                    box.Length = BitConverter.ToInt32(EntryData[3], 0);
+                    box.Height = BitConverter.ToInt32(EntryData[4], 0);
+                    box.Width = BitConverter.ToInt32(EntryData[5], 0);
+                    box.UvX = BitConverter.ToInt32(EntryData[6], 0);
+                    box.UvY = BitConverter.ToInt32(EntryData[7], 0);
+                    box.Scale = BitConverter.ToInt32(EntryData[8], 0);
+                    break;
             }
         }
 
@@ -420,7 +573,13 @@ namespace __Model_Studio
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveModels();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Models File|*.bin";
+            sfd.Title = "Save Models";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                ModelBuilder.Build(MCon, sfd.FileName);
+            }
         }
 
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -478,7 +637,8 @@ namespace __Model_Studio
                 {
                     FileNodeTree.Nodes.Clear();
                     EntryNodeTree.Nodes.Clear();
-                    mf.OpenModel(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ModelStudio\\TemplateModels\\models.bin", FileNodeTree, EntryNodeTree);
+                    MCon = ModelParser.Parse(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ModelStudio\\TemplateModels\\models.bin");
+                    GetNodes(FileNodeTree, EntryNodeTree);
                     saveToolStripMenuItem.Enabled = true;
                     HasFileOpen = true;
                 }
@@ -487,13 +647,15 @@ namespace __Model_Studio
             {
                 FileNodeTree.Nodes.Clear();
                 EntryNodeTree.Nodes.Clear();
-                mf.OpenModel(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ModelStudio\\TemplateModels\\models.bin", FileNodeTree, EntryNodeTree);
+                MCon = ModelParser.Parse(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ModelStudio\\TemplateModels\\models.bin");
+                GetNodes(FileNodeTree, EntryNodeTree);
                 saveToolStripMenuItem.Enabled = true;
                 HasFileOpen = true;
             }
             try
             {
                 FileNodeTree.SelectedNode = FileNodeTree.Nodes[0];
+                FileNodeTree.Nodes[0].Expand();
             }
             catch
             {

@@ -157,6 +157,16 @@ internal class ArraySupport
 		InputStream.Write(bytes, 0, bytes.Length);
 	}
 
+	internal void WriteInt16ToStream(int Number, Stream InputStream)
+	{
+		byte[] bytes = BitConverter.GetBytes((Int16)Number);
+		if (UseLittleEndian)
+		{
+			Array.Reverse(bytes);
+		}
+		InputStream.Write(bytes, 0, bytes.Length);
+	}
+
 	internal void WriteUIntToStream(uint uint_0, Stream InputStream)
 	{
 		byte[] bytes = BitConverter.GetBytes(uint_0);
