@@ -106,6 +106,7 @@
     <Compile Include="Classes\ModelsWorker\model\ModelContainer.cs" />
     <Compile Include="Classes\ModelsWorker\model\ModelPiece.cs" />
     <Compile Include="Classes\Network.cs" />
+    <Compile Include="Classes\RavSoft\Translator.cs" />
     <Compile Include="Classes\Update.cs" />
     <Compile Include="Classes\UserInteraction.cs" />
     <Compile Include="Forms\About.cs">
