@@ -477,6 +477,7 @@ namespace __Model_Studio
                 ModelStrip.Items[0].Enabled = false;
                 ModelStrip.Items[1].Enabled = true;
                 ModelStrip.Items[2].Enabled = false;
+                ModelStrip.Items[3].Enabled = false;
             }
             if(g == 3) // PART
             {
@@ -484,6 +485,7 @@ namespace __Model_Studio
                 ModelStrip.Items[0].Enabled = true;
                 ModelStrip.Items[1].Enabled = true;
                 ModelStrip.Items[2].Enabled = false;
+                ModelStrip.Items[3].Enabled = false;
             }
             if(g == 2) // MODEL
             {
@@ -491,12 +493,14 @@ namespace __Model_Studio
                 ModelStrip.Items[0].Enabled = true;
                 ModelStrip.Items[1].Enabled = true;
                 ModelStrip.Items[2].Enabled = true;
+                ModelStrip.Items[3].Enabled = true;
             }
             if(g == 1) // FILE
             {
                 ModelStrip.Items[0].Enabled = true;
                 ModelStrip.Items[1].Enabled = false;
                 ModelStrip.Items[2].Enabled = false;
+                ModelStrip.Items[3].Enabled = false;
             }
         }
 
@@ -666,10 +670,28 @@ namespace __Model_Studio
         private void convertToCSMToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "CustomSkinModel| *.CSM";
+            sfd.Filter = "JSON Model| *.json";
             if(sfd.ShowDialog() == DialogResult.OK)
             {
-                Classes.CSM_Actions.ModelToCSM(sfd.FileName, FileNodeTree.SelectedNode);
+                ModelPiece piece = new ModelPiece();
+                string[] Path = FileNodeTree.SelectedNode.FullPath.Split(new[] { "\\" }, StringSplitOptions.None);
+                MCon.models.TryGetValue(Path[1], out piece);
+                Classes.JSONActions.ModelToJSON(sfd.FileName, piece);
+                //Classes.JSONActions.ModelToJSON(sfd.FileName, FileNodeTree.SelectedNode);
+            }
+        }
+
+        private void convertToCSMToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CSM Model| *.csm";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                ModelPiece piece = new ModelPiece();
+                string[] Path = FileNodeTree.SelectedNode.FullPath.Split(new[] { "\\" }, StringSplitOptions.None);
+                MCon.models.TryGetValue(Path[1], out piece);
+                Classes.CSM_Actions.ModelToCSM(sfd.FileName, piece);
                 //Classes.JSONActions.ModelToJSON(sfd.FileName, FileNodeTree.SelectedNode);
             }
         }
@@ -682,6 +704,14 @@ namespace __Model_Studio
 
         private void tESTINGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            OpenFileDialog sfd = new OpenFileDialog();
+            sfd.Filter = "CSM Model| *.csm";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Classes.CSM_Actions.CSMToJSON(sfd.FileName, sfd.FileName.Replace(".csm",".json"));
+                //Classes.JSONActions.ModelToJSON(sfd.FileName, FileNodeTree.SelectedNode);
+            }
         }
 
         private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -737,5 +767,6 @@ namespace __Model_Studio
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 e.Effect = DragDropEffects.Copy;
         }
+
     }
 }

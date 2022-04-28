@@ -50,6 +50,7 @@ namespace __Model_Studio
             this.EntryNodeTree = new System.Windows.Forms.TreeView();
             this.EntryStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewItemHexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertToCSMToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ModelStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.EntryStrip.SuspendLayout();
@@ -75,9 +76,10 @@ namespace __Model_Studio
             this.ModelStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.removeToolStripMenuItem,
-            this.convertToCSMToolStripMenuItem});
+            this.convertToCSMToolStripMenuItem,
+            this.convertToCSMToolStripMenuItem1});
             this.ModelStrip.Name = "ModelStrip";
-            this.ModelStrip.Size = new System.Drawing.Size(181, 92);
+            this.ModelStrip.Size = new System.Drawing.Size(181, 114);
             // 
             // addToolStripMenuItem
             // 
@@ -100,8 +102,7 @@ namespace __Model_Studio
             this.convertToCSMToolStripMenuItem.Enabled = false;
             this.convertToCSMToolStripMenuItem.Name = "convertToCSMToolStripMenuItem";
             this.convertToCSMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.convertToCSMToolStripMenuItem.Text = "Convert to CSM";
-            this.convertToCSMToolStripMenuItem.Visible = false;
+            this.convertToCSMToolStripMenuItem.Text = "Convert to JSON";
             this.convertToCSMToolStripMenuItem.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem_Click);
             // 
             // menuStrip1
@@ -129,7 +130,7 @@ namespace __Model_Studio
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -137,7 +138,7 @@ namespace __Model_Studio
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -146,7 +147,7 @@ namespace __Model_Studio
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -195,7 +196,6 @@ namespace __Model_Studio
             this.tESTINGToolStripMenuItem.Name = "tESTINGToolStripMenuItem";
             this.tESTINGToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.tESTINGToolStripMenuItem.Text = "TESTING";
-            this.tESTINGToolStripMenuItem.Visible = false;
             this.tESTINGToolStripMenuItem.Click += new System.EventHandler(this.tESTINGToolStripMenuItem_Click);
             // 
             // EntryNodeTree
@@ -227,6 +227,13 @@ namespace __Model_Studio
             this.viewItemHexToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.viewItemHexToolStripMenuItem.Text = "View item hex";
             this.viewItemHexToolStripMenuItem.Click += new System.EventHandler(this.viewItemHexToolStripMenuItem_Click);
+            // 
+            // convertToCSMToolStripMenuItem1
+            // 
+            this.convertToCSMToolStripMenuItem1.Name = "convertToCSMToolStripMenuItem1";
+            this.convertToCSMToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.convertToCSMToolStripMenuItem1.Text = "Convert to CSM";
+            this.convertToCSMToolStripMenuItem1.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -274,6 +281,7 @@ namespace __Model_Studio
         private System.Windows.Forms.ToolStripMenuItem tESTINGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sourceCodeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendABugReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convertToCSMToolStripMenuItem1;
     }
 }
 
