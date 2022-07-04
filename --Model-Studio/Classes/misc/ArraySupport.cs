@@ -156,6 +156,19 @@ internal class ArraySupport
 		}
 		InputStream.Write(bytes, 0, bytes.Length);
 	}
+	internal void WriteByteToStream(byte Byte, Stream InputStream)
+	{
+		InputStream.Write(new[] { Byte }, 0, 1);
+	}
+	internal void WriteFloatToStream(float Number, Stream InputStream)
+	{
+		byte[] bytes = BitConverter.GetBytes(Number);
+		if (UseLittleEndian)
+		{
+			Array.Reverse(bytes);
+		}
+		InputStream.Write(bytes, 0, bytes.Length);
+	}
 
 	internal void WriteInt16ToStream(int Number, Stream InputStream)
 	{
@@ -177,7 +190,7 @@ internal class ArraySupport
 		InputStream.Write(bytes, 0, bytes.Length);
 	}
 
-	internal void WriteStringToStream(string string_0, MemoryStream memoryInputStream)
+	internal void WriteStringToStream(string string_0, Stream memoryInputStream)
 	{
 		Encoding utf = Encoding.UTF8;
 		byte[] bytes = utf.GetBytes(string_0);

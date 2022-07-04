@@ -15,6 +15,7 @@ namespace ModelsWorker.model
 
     public class ModelPart
     {
+        public float UnknownFloat;
         public float TranslationX;
         public float TranslationY;
         public float TranslationZ;

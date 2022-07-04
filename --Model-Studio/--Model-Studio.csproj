@@ -82,6 +82,9 @@
     <Reference Include="MoreLinq, Version=3.3.2.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
       <HintPath>..\packages\morelinq.3.3.2\lib\net451\MoreLinq.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -99,17 +102,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ArraySupport.cs" />
-    <Compile Include="Classes\CSM Actions.cs" />
-    <Compile Include="Classes\JSONActions.cs" />
+    <Compile Include="Classes\misc\ArraySupport.cs" />
+    <Compile Include="Classes\FiletypeWorkers\CSM Actions.cs" />
+    <Compile Include="Classes\FiletypeWorkers\BedrockGeometry.cs" />
+    <Compile Include="Classes\FiletypeWorkers\JSONActions.cs" />
     <Compile Include="Classes\ModelsWorker\ModelBuilder.cs" />
     <Compile Include="Classes\ModelsWorker\ModelParser.cs" />
     <Compile Include="Classes\ModelsWorker\model\ModelContainer.cs" />
     <Compile Include="Classes\ModelsWorker\model\ModelPiece.cs" />
-    <Compile Include="Classes\Network.cs" />
+    <Compile Include="Classes\Networking\Network.cs" />
     <Compile Include="Classes\RavSoft\Translator.cs" />
-    <Compile Include="Classes\Update.cs" />
-    <Compile Include="Classes\UserInteraction.cs" />
+    <Compile Include="Classes\Networking\Update.cs" />
+    <Compile Include="Classes\misc\UserInteraction.cs" />
     <Compile Include="Forms\3DCube.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,7 +144,7 @@
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\ModelsBin.cs" />
+    <Compile Include="Classes\FiletypeWorkers\ModelsBin.cs" />
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Forms\HexBox.cs">
       <SubType>Form</SubType>
@@ -209,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ModelsGuide.txt" />
+    <None Include="Resources\mobs.json" />
     <None Include="Resources\Spark.png" />
     <Content Include="Spark.ico" />
     <None Include="Resources\mobs.png" />

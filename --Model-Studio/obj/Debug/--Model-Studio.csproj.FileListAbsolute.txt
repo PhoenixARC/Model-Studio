@@ -31,3 +31,5 @@ C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\MoreLinq.xml
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\System.ValueTuple.xml
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.SuggestedBindingRedirects.cache
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.CopyComplete
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Newtonsoft.Json.dll
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Newtonsoft.Json.xml

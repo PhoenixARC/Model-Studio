@@ -36,6 +36,7 @@ namespace __Model_Studio
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.convertToCSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertToCSMToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,6 @@ namespace __Model_Studio
             this.EntryNodeTree = new System.Windows.Forms.TreeView();
             this.EntryStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewItemHexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.convertToCSMToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ModelStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.EntryStrip.SuspendLayout();
@@ -93,6 +93,7 @@ namespace __Model_Studio
             // 
             this.removeToolStripMenuItem.Enabled = false;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
@@ -104,6 +105,13 @@ namespace __Model_Studio
             this.convertToCSMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.convertToCSMToolStripMenuItem.Text = "Convert to JSON";
             this.convertToCSMToolStripMenuItem.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem_Click);
+            // 
+            // convertToCSMToolStripMenuItem1
+            // 
+            this.convertToCSMToolStripMenuItem1.Name = "convertToCSMToolStripMenuItem1";
+            this.convertToCSMToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.convertToCSMToolStripMenuItem1.Text = "Convert to CSM";
+            this.convertToCSMToolStripMenuItem1.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem1_Click);
             // 
             // menuStrip1
             // 
@@ -227,13 +235,6 @@ namespace __Model_Studio
             this.viewItemHexToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.viewItemHexToolStripMenuItem.Text = "View item hex";
             this.viewItemHexToolStripMenuItem.Click += new System.EventHandler(this.viewItemHexToolStripMenuItem_Click);
-            // 
-            // convertToCSMToolStripMenuItem1
-            // 
-            this.convertToCSMToolStripMenuItem1.Name = "convertToCSMToolStripMenuItem1";
-            this.convertToCSMToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.convertToCSMToolStripMenuItem1.Text = "Convert to CSM";
-            this.convertToCSMToolStripMenuItem1.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem1_Click);
             // 
             // Form1
             // 

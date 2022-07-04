@@ -23,6 +23,10 @@ namespace __Model_Studio.Classes
                     File.Create(docuDir + "\\ModelStudio\\UserData\\Change.log");
                     File.WriteAllBytes(docuDir + "\\ModelStudio\\TemplateModels\\models.bin", Properties.Resources.TemplateModels);
                 }
+                if (!File.Exists(docuDir + "\\ModelStudio\\TemplateModels\\BedrockGeometry.json"))
+                {
+                    File.WriteAllBytes(docuDir + "\\ModelStudio\\TemplateModels\\BedrockGeometry.json", Properties.Resources.mobsJSON);
+                }
             }
             catch
             {

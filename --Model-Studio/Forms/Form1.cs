@@ -155,81 +155,6 @@ namespace __Model_Studio
             return val - (val < 58 ? 48 : (val < 97 ? 55 : 87));
         }
 
-        public void ResetNodeCount(TreeNode tn)
-        {
-            byte[] data = StringToByteArrayFastest(tn.Tag.ToString().Replace("-", ""));
-            List<byte> newdat = new List<byte>();
-            newdat.AddRange(data.Take(data.Length - 4));
-            newdat.AddRange(BitConverter.GetBytes(tn.Nodes.Count).Reverse().ToArray());
-            tn.Tag = BitConverter.ToString(newdat.ToArray());
-        }
-
-        public void RebuildFileNode()
-        {
-
-            int g = ModelsBin.GetNodeparents(FileNodeTree.SelectedNode);
-            List<byte> OutputBytes = new List<byte>();
-
-            switch (g)
-            {
-                case (4):
-                    {
-                        foreach(TreeNode tn in EntryNodeTree.Nodes[0].Nodes)
-                        {
-                            byte[] data = StringToByteArrayFastest(tn.Tag.ToString().Replace("-", "")).Reverse().ToArray();
-                            OutputBytes.AddRange(data);
-                        }
-                        FileNodeTree.SelectedNode.Tag = BitConverter.ToString(OutputBytes.ToArray());
-                    }
-                    break;
-                case (3):
-                    {
-
-                        byte[] nomLen = BitConverter.GetBytes(Int16.Parse(FileNodeTree.SelectedNode.Text.Length.ToString())).Reverse().ToArray();
-                        byte[] nom = Encoding.Default.GetBytes(FileNodeTree.SelectedNode.Text);
-                        byte[] TranslationX = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[1].Tag.ToString().Replace("-", "")).ToArray();
-                        byte[] TranslationY = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[2].Tag.ToString().Replace("-", "")).ToArray();
-                        byte[] TranslationZ = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[3].Tag.ToString().Replace("-", "")).ToArray();
-                        byte[] OffsetX = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[4].Tag.ToString().Replace("-", "")).ToArray();
-                        byte[] OffsetY = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[5].Tag.ToString().Replace("-", "")).ToArray();
-                        byte[] RotationX = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[6].Tag.ToString().Replace("-", "")).ToArray();
-                        byte[] RotationY = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[7].Tag.ToString().Replace("-", "")).ToArray();
-                        byte[] RotationZ = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[8].Tag.ToString().Replace("-", "")).ToArray();
-
-                        OutputBytes.AddRange(nomLen);
-                        OutputBytes.AddRange(nom);
-                        OutputBytes.AddRange(new byte[] { 0x00, 0x00, 0x00, 0x00 });
-                        OutputBytes.AddRange(TranslationX);
-                        OutputBytes.AddRange(TranslationY);
-                        OutputBytes.AddRange(TranslationZ);
-                        OutputBytes.AddRange(OffsetX);
-                        OutputBytes.AddRange(OffsetY);
-                        OutputBytes.AddRange(RotationX);
-                        OutputBytes.AddRange(RotationY);
-                        OutputBytes.AddRange(RotationZ);
-                        OutputBytes.AddRange(new byte[] { 0x00, 0x00, 0x00, 0x00 });
-                        FileNodeTree.SelectedNode.Tag = BitConverter.ToString(OutputBytes.ToArray());
-                        ResetNodeCount(FileNodeTree.SelectedNode);
-                    }
-                    break;
-                case (2):
-                    {
-                        byte[] nomLen = BitConverter.GetBytes(Int16.Parse(FileNodeTree.SelectedNode.Text.Length.ToString())).Reverse().ToArray();
-                        byte[] nom = Encoding.Default.GetBytes(FileNodeTree.SelectedNode.Text);
-                        byte[] wid = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[1].Tag.ToString().Replace("-", "")).ToArray();
-                        byte[] hei = StringToByteArrayFastest(EntryNodeTree.Nodes[0].Nodes[2].Tag.ToString().Replace("-", "")).ToArray();
-                        OutputBytes.AddRange(nomLen);
-                        OutputBytes.AddRange(nom);
-                        OutputBytes.AddRange(wid);
-                        OutputBytes.AddRange(hei);
-                        OutputBytes.AddRange(new byte[] { 0x00, 0x00, 0x00, 0x00 });
-                        FileNodeTree.SelectedNode.Tag = BitConverter.ToString(OutputBytes.ToArray());
-                        ResetNodeCount(FileNodeTree.SelectedNode);
-                    }
-                    break;
-            }
-
-        }
 
         private static int GetIndex(string nom)
         {
@@ -511,13 +436,11 @@ namespace __Model_Studio
             {
                 Forms.ValueEditor ve = new Forms.ValueEditor(EntryNodeTree.SelectedNode, 1, EntryData, EntryNodeTree.SelectedNode.Index);
                 ve.ShowDialog();
-                //RebuildFileNode();
             }
             else if (EntryNodeTree.SelectedNode.ImageIndex == 55)
             {
                 Forms.ValueEditor ve = new Forms.ValueEditor(EntryNodeTree.SelectedNode, 2, EntryData, EntryNodeTree.SelectedNode.Index);
                 ve.ShowDialog();
-                //RebuildFileNode();
             }
 
 
@@ -537,28 +460,28 @@ namespace __Model_Studio
                 case "PART":
                     MCon.models.TryGetValue(Path[1], out piece);
                     piece.Parts.TryGetValue(Path[2], out part);
-                    part.TranslationX = BitConverter.ToInt32(EntryData[0], 0);
-                    part.TranslationY = BitConverter.ToInt32(EntryData[1], 0);
-                    part.TranslationZ = BitConverter.ToInt32(EntryData[2], 0);
-                    part.TextureOffsetX = BitConverter.ToInt32(EntryData[3], 0);
-                    part.TextureOffsetY = BitConverter.ToInt32(EntryData[4], 0);
-                    part.RotationX = BitConverter.ToInt32(EntryData[5], 0);
-                    part.RotationY = BitConverter.ToInt32(EntryData[6], 0);
-                    part.RotationZ = BitConverter.ToInt32(EntryData[7], 0);
+                    part.TranslationX = BitConverter.ToSingle(EntryData[0], 0);
+                    part.TranslationY = BitConverter.ToSingle(EntryData[1], 0);
+                    part.TranslationZ = BitConverter.ToSingle(EntryData[2], 0);
+                    part.TextureOffsetX = BitConverter.ToSingle(EntryData[3], 0);
+                    part.TextureOffsetY = BitConverter.ToSingle(EntryData[4], 0);
+                    part.RotationX = BitConverter.ToSingle(EntryData[5], 0);
+                    part.RotationY = BitConverter.ToSingle(EntryData[6], 0);
+                    part.RotationZ = BitConverter.ToSingle(EntryData[7], 0);
                     break;
                 case "BOX":
                     MCon.models.TryGetValue(Path[1], out piece);
                     piece.Parts.TryGetValue(Path[2], out part);
                     part.Boxes.TryGetValue(Path[3].Split(' ')[1], out box);
-                    box.PositionX = BitConverter.ToInt32(EntryData[0], 0);
-                    box.PositionY = BitConverter.ToInt32(EntryData[1], 0);
-                    box.PositionZ = BitConverter.ToInt32(EntryData[2], 0);
+                    box.PositionX = BitConverter.ToSingle(EntryData[0], 0);
+                    box.PositionY = BitConverter.ToSingle(EntryData[1], 0);
+                    box.PositionZ = BitConverter.ToSingle(EntryData[2], 0);
                     box.Length = BitConverter.ToInt32(EntryData[3], 0);
                     box.Height = BitConverter.ToInt32(EntryData[4], 0);
                     box.Width = BitConverter.ToInt32(EntryData[5], 0);
-                    box.UvX = BitConverter.ToInt32(EntryData[6], 0);
-                    box.UvY = BitConverter.ToInt32(EntryData[7], 0);
-                    box.Scale = BitConverter.ToInt32(EntryData[8], 0);
+                    box.UvX = BitConverter.ToSingle(EntryData[6], 0);
+                    box.UvY = BitConverter.ToSingle(EntryData[7], 0);
+                    box.Scale = BitConverter.ToSingle(EntryData[8], 0);
                     break;
             }
         }
@@ -591,7 +514,33 @@ namespace __Model_Studio
             if (FileNodeTree.SelectedNode == FileNodeTree.Nodes[0])
                 MessageBox.Show("Cannot remove head node!");
             else
+            {
+                ModelBox box = new ModelBox();
+                ModelPart part = new ModelPart();
+                ModelPiece piece = new ModelPiece();
+                string[] Path = FileNodeTree.SelectedNode.FullPath.Split(new[] { "\\" }, StringSplitOptions.None);
+                int g = GetNodeparents(FileNodeTree.SelectedNode);
+                switch (g)
+                {
+                    case 4:
+                        MCon.models.TryGetValue(Path[1], out piece);
+                        piece.Parts.TryGetValue(Path[2], out part);
+                        part.Boxes.TryGetValue(Path[3].Split(' ')[1], out box);
+                        part.Boxes.Remove(Path[3].Split(' ')[1]);
+                        break;
+                    case 3:
+                        MCon.models.TryGetValue(Path[1], out piece);
+                        piece.Parts.TryGetValue(Path[2], out part);
+                        piece.Parts.Remove(Path[2]);
+                        break;
+                    case 2:
+                        MCon.models.TryGetValue(Path[1], out piece);
+                        MCon.models.Remove(Path[1]);
+                        break;
+                }
                 FileNodeTree.Nodes.Remove(FileNodeTree.SelectedNode);
+
+            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
@@ -610,17 +559,14 @@ namespace __Model_Studio
                     TreeNode tn0 = new TreeNode("Box" + (FileNodeTree.SelectedNode.Nodes.Count + 1));
                     tn0.Tag = BitConverter.ToString(Arr1);
                     FileNodeTree.SelectedNode.Nodes.Add(tn0);
-                    ResetNodeCount(FileNodeTree.SelectedNode);
                     break;
                 case (2):
                     Forms.NewEntry ne = new Forms.NewEntry(FileNodeTree.SelectedNode, g);
                     ne.ShowDialog();
-                    ResetNodeCount(FileNodeTree.SelectedNode);
                     break;
                 case (1):
                     Forms.NewEntry ne1 = new Forms.NewEntry(FileNodeTree.SelectedNode, g);
                     ne1.ShowDialog();
-                    ResetNodeCount(FileNodeTree.SelectedNode);
                     break;
                 default:
                     break;
@@ -674,9 +620,11 @@ namespace __Model_Studio
             if(sfd.ShowDialog() == DialogResult.OK)
             {
                 ModelPiece piece = new ModelPiece();
+                Classes.FiletypeWorkers.BedrockJSONtoCSM BJ = new Classes.FiletypeWorkers.BedrockJSONtoCSM();
                 string[] Path = FileNodeTree.SelectedNode.FullPath.Split(new[] { "\\" }, StringSplitOptions.None);
                 MCon.models.TryGetValue(Path[1], out piece);
-                Classes.JSONActions.ModelToJSON(sfd.FileName, piece);
+                string output = BJ.ModelToJSON(piece);
+                File.WriteAllText(sfd.FileName, output);
                 //Classes.JSONActions.ModelToJSON(sfd.FileName, FileNodeTree.SelectedNode);
             }
         }
@@ -704,14 +652,6 @@ namespace __Model_Studio
 
         private void tESTINGToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            OpenFileDialog sfd = new OpenFileDialog();
-            sfd.Filter = "CSM Model| *.csm";
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                Classes.CSM_Actions.CSMToJSON(sfd.FileName, sfd.FileName.Replace(".csm",".json"));
-                //Classes.JSONActions.ModelToJSON(sfd.FileName, FileNodeTree.SelectedNode);
-            }
         }
 
         private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)

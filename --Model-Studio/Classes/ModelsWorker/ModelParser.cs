@@ -46,18 +46,18 @@ namespace ModelsWorker
             {
                 string Modelname = ArrSupport.GetString(s); // get model name
                 ModelPiece mp = new ModelPiece();
-                mp.TextureHeight = ArrSupport.GetInt32(s); // get texture height
                 mp.TextureWidth = ArrSupport.GetInt32(s); // get texture width
+                mp.TextureHeight = ArrSupport.GetInt32(s); // get texture height
                 int NumOfParts = ArrSupport.GetInt32(s); // get number of parts in model
 
                 for (int j = 0; j < NumOfParts; j++)
                 {
                     ModelPart mpart = new ModelPart();
                     string ModelPartname = ArrSupport.GetString(s); // get model part name
-                    ArrSupport.GetInt32(s); // skip over 4 byte buffer space
                     mpart.TranslationX = ArrSupport.Getfloat(s); // get model part translation in X dimension
                     mpart.TranslationY = ArrSupport.Getfloat(s); // get model part translation in Y dimension
                     mpart.TranslationZ = ArrSupport.Getfloat(s); // get model part translation in Z dimension
+                    mpart.UnknownFloat = ArrSupport.Getfloat(s); // get Unknown Floating Point number
                     mpart.TextureOffsetX = ArrSupport.Getfloat(s); // get model part Texture Offset in X dimension
                     mpart.TextureOffsetY = ArrSupport.Getfloat(s); // get model part Texture Offset in Y dimension
                     mpart.RotationX = ArrSupport.Getfloat(s); // get model part Rotation in X dimension
