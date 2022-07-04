@@ -102,6 +102,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\FiletypeWorkers\OptifineJEModel.cs" />
     <Compile Include="Classes\misc\ArraySupport.cs" />
     <Compile Include="Classes\FiletypeWorkers\CSM Actions.cs" />
     <Compile Include="Classes\FiletypeWorkers\BedrockGeometry.cs" />

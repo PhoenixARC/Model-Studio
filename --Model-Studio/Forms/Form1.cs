@@ -708,5 +708,20 @@ namespace __Model_Studio
                 e.Effect = DragDropEffects.Copy;
         }
 
+        private void convertToJEMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Java Edition Model| *.jem";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                ModelPiece piece = new ModelPiece();
+                Classes.FiletypeWorkers.OptifineJEModel BJ = new Classes.FiletypeWorkers.OptifineJEModel();
+                string[] Path = FileNodeTree.SelectedNode.FullPath.Split(new[] { "\\" }, StringSplitOptions.None);
+                MCon.models.TryGetValue(Path[1], out piece);
+                string output = BJ.ModelToJEM(piece);
+                File.WriteAllText(sfd.FileName, output);
+                //Classes.JSONActions.ModelToJSON(sfd.FileName, FileNodeTree.SelectedNode);
+            }
+        }
     }
 }

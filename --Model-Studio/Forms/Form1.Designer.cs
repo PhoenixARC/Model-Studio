@@ -51,6 +51,7 @@ namespace __Model_Studio
             this.EntryNodeTree = new System.Windows.Forms.TreeView();
             this.EntryStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewItemHexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertToJEMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModelStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.EntryStrip.SuspendLayout();
@@ -77,9 +78,10 @@ namespace __Model_Studio
             this.addToolStripMenuItem,
             this.removeToolStripMenuItem,
             this.convertToCSMToolStripMenuItem,
-            this.convertToCSMToolStripMenuItem1});
+            this.convertToCSMToolStripMenuItem1,
+            this.convertToJEMToolStripMenuItem});
             this.ModelStrip.Name = "ModelStrip";
-            this.ModelStrip.Size = new System.Drawing.Size(181, 114);
+            this.ModelStrip.Size = new System.Drawing.Size(181, 136);
             // 
             // addToolStripMenuItem
             // 
@@ -236,6 +238,13 @@ namespace __Model_Studio
             this.viewItemHexToolStripMenuItem.Text = "View item hex";
             this.viewItemHexToolStripMenuItem.Click += new System.EventHandler(this.viewItemHexToolStripMenuItem_Click);
             // 
+            // convertToJEMToolStripMenuItem
+            // 
+            this.convertToJEMToolStripMenuItem.Name = "convertToJEMToolStripMenuItem";
+            this.convertToJEMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.convertToJEMToolStripMenuItem.Text = "Convert to JEM";
+            this.convertToJEMToolStripMenuItem.Click += new System.EventHandler(this.convertToJEMToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -283,6 +292,7 @@ namespace __Model_Studio
         private System.Windows.Forms.ToolStripMenuItem sourceCodeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendABugReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem convertToCSMToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem convertToJEMToolStripMenuItem;
     }
 }
 
