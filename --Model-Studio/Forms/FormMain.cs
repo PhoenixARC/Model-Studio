@@ -13,10 +13,12 @@ using System.IO;
 using ModelsWorker.model;
 using ModelsWorker;
 using RavSoft.GoogleTranslator;
+using TranslationDBWorker.model;
+using TranslationDBWorker;
 
 namespace __Model_Studio
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
 
         #region Variables
@@ -30,71 +32,142 @@ namespace __Model_Studio
         bool HasFileOpen = false;
 
 
+
+        public string[,] ModelnameArray =
+        {
+            {"bat.geo", "bat"},
+			{"bed.geo", "bed"},
+			{"blaze.geo", "blaze"},
+			{"boat.geo", "boat"},
+			{"cat.geo", "cat"},
+			{"chicken.geo", "chicken"},
+			{"cod.geo", "cod"},
+			{"creeper.geo", "creeper"},
+			{"creeper_head.geo", "creeper_head"},
+			{"dolphin.geo", "dolphin"},
+			{"dragon.geo", "dragon"},
+			{"dragon_head.geo", "dragon_head"},
+			{"zombie.drowned.geo", "zombie.drowned"},
+			{"enderman.geo", "enderman"},
+			{"endermite.geo", "endermite"},
+			{"evoker.geo", "evoker"},
+			{"ghast.geo", "ghast"},
+			{"guardian.geo", "guardian"},
+			{"horse.v2.geo", "horse.v2"},
+			{"irongolem.geo", "irongolem"},
+			{"lavaslime.geo", "lavaslime"},
+			{"llama.geo", "llama"},
+			{"minecart.geo", "minecart"},
+			{"ocelot.geo", "ocelot"},
+			{"panda.geo", "panda"},
+			{"parrot.geo", "parrot"},
+			{"phantom.geo", "phantom"},
+			{"pig.geo", "pig"},
+			{"pigzombie.geo", "pigzombie"},
+			{"polarbear.geo", "polarbear"},
+			{"pufferfish.large.geo", "pufferfish.large"},
+			{"pufferfish.mid.geo", "pufferfish.mid"},
+			{"pufferfish.small.geo", "pufferfish.small"},
+			{"rabbit.geo", "rabbit"},
+			{"salmon.geo", "salmon"},
+			{"turtle.geo", "turtle"},
+			{"sheep.geo", "sheep"},
+			{"sheep.sheared.geo", "sheep.sheared"},
+			{"shulker.geo", "shulker"},
+			{"silverfish.geo", "silverfish"},
+			{"skeleton.geo", "skeleton"},
+			{"skeleton_head.geo", "skeleton_head"},
+			{"skeleton.stray.geo", "skeleton.stray"},
+			{"skeleton.wither.geo", "skeleton.wither"},
+			{"skeleton_wither_head.geo", "skeleton_wither_head"},
+			{"slime.geo", "slime"},
+			{"slime.armor.geo", "slime.armor"},
+			{"snowgolem.geo", "snowgolem"},
+			{"spider.geo", "spider"},
+			{"squid.geo", "squid"},
+			{"stray.armor.geo", "stray.armor"},
+			{"trident.geo", "trident"},
+			{"tropicalfish_a.geo", "tropicalfish_a"},
+			{"tropicalfish_b.geo", "tropicalfish_b"},
+			{"vex.geo", "vex"},
+			{"villager.geo", "villager"},
+			{"villager.witch.geo", "villager.witch"},
+			{"vindicator.geo", "vindicator"},
+			{"witherboss.geo", "witherBoss"},
+			{"wolf.geo", "wolf"},
+			{"zombie.geo", "zombie"},
+			{"zombie_head.geo", "zombie_head"},
+			{"zombie.husk.geo", "zombie.husk"},
+			{"zombie.villager.geo", "zombie.villager"}
+        };
+
         static string[] IconSheetIndex =
-{"unknown",
-"creeper",
-"skeleton",
-"spider",
-"zombie",
-"slime",
-"ghast",
-"pigzombie",
-"enderman",
-"cavespider",
-"silverfish",
-"blaze",
-"lavaslime",
-"enderdragon",
-"witherBoss",
-"bat",
-"villager.witch",
-"endermite",
-"guardian",
-"shulker",
-"pig",
-"sheep",
-"cow",
-"chicken",
-"squid",
-"wolf",
-"redcow",
-"snowgolem",
-"ocelot",
-"irongolem",
-"horse",
-"donkey",
-"mule",
-"skeletonhorse",
-"zombiehorse",
-"rabbit",
-"polarbear",
-"llama",
-"parrot",
-"villager",
-"vindicator",
-"evoker",
-"vex",
-"skeleton.stray",
-"illusioner",
-"endcrystal",
-"zombie.villager",
-"elderguardian",
-"zombie.husk",
-"skeleton.wither",
-"package",
-"folder",
-"single",
-"float",
-"text",
-"integer",
-"dolphin",
-"dragon",
-"trident",
-"boat",
-"minecart",
-"dragon_head",
-"creeper_head",
-"sheep.sheared"};
+        {
+            "unknown",
+			"creeper",
+			"skeleton",
+			"spider",
+			"zombie",
+			"slime",
+			"ghast",
+			"pigzombie",
+			"enderman",
+			"cavespider",
+			"silverfish",
+			"blaze",
+			"lavaslime",
+			"enderdragon",
+			"witherBoss",
+			"bat",
+			"villager.witch",
+			"endermite",
+			"guardian",
+			"shulker",
+			"pig",
+			"sheep",
+			"cow",
+			"chicken",
+			"squid",
+			"wolf",
+			"redcow",
+			"snowgolem",
+			"ocelot",
+			"irongolem",
+			"horse",
+			"donkey",
+			"mule",
+			"skeletonhorse",
+			"zombiehorse",
+			"rabbit",
+			"polarbear",
+			"llama",
+			"parrot",
+			"villager",
+			"vindicator",
+			"evoker",
+			"vex",
+			"skeleton.stray",
+			"illusioner",
+			"endcrystal",
+			"zombie.villager",
+			"elderguardian",
+			"zombie.husk",
+			"skeleton.wither",
+			"package",
+			"folder",
+			"single",
+			"float",
+			"text",
+			"integer",
+			"dolphin",
+			"dragon",
+			"trident",
+			"boat",
+			"minecart",
+			"dragon_head",
+			"creeper_head",
+			"sheep.sheared"
+        };
 
         #endregion
 
@@ -366,7 +439,7 @@ namespace __Model_Studio
 
         #region Form Functions
 
-        public Form1()
+        public FormMain()
         {
             Classes.UserInteraction.GenerateDocumentData();
             InitializeComponent();
@@ -418,14 +491,14 @@ namespace __Model_Studio
                 ModelStrip.Items[0].Enabled = true;
                 ModelStrip.Items[1].Enabled = true;
                 ModelStrip.Items[2].Enabled = true;
-                ModelStrip.Items[3].Enabled = true;
+                ModelStrip.Items[3].Enabled = false;
             }
             if(g == 1) // FILE
             {
                 ModelStrip.Items[0].Enabled = true;
                 ModelStrip.Items[1].Enabled = false;
                 ModelStrip.Items[2].Enabled = false;
-                ModelStrip.Items[3].Enabled = false;
+                ModelStrip.Items[3].Enabled = true;
             }
         }
 
@@ -721,6 +794,82 @@ namespace __Model_Studio
                 string output = BJ.ModelToJEM(piece);
                 File.WriteAllText(sfd.FileName, output);
                 //Classes.JSONActions.ModelToJSON(sfd.FileName, FileNodeTree.SelectedNode);
+            }
+        }
+
+        private void importJSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog sfd = new OpenFileDialog();
+            sfd.Filter = "Bedrock JSON| *.json";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Classes.FiletypeWorkers.BedrockJSONtoCSM BJ = new Classes.FiletypeWorkers.BedrockJSONtoCSM();
+                string Path = System.IO.Path.GetFileNameWithoutExtension(sfd.FileName);
+                ModelPiece output = BJ.JSONToModel(File.ReadAllText(sfd.FileName), Path, MCon);
+                FileNodeTree.Nodes.Clear();
+                EntryNodeTree.Nodes.Clear();
+                GetNodes(FileNodeTree, EntryNodeTree);
+                //Classes.JSONActions.ModelToJSON(sfd.FileName, FileNodeTree.SelectedNode);
+            }
+        }
+
+
+        public int FindRow(string elem)
+        {
+            int rowCount = ModelnameArray.GetLength(0),
+                colCount = ModelnameArray.GetLength(1);
+            for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+            {
+                for (int colIndex = 0; colIndex < colCount; colIndex++)
+                {
+                    if (ModelnameArray[rowIndex, colIndex] == elem)
+                    {
+                        return rowIndex;
+                    }
+                }
+            }
+            return -1;
+        }
+
+        private void materialsEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.MaterialEditor Medit = new Forms.MaterialEditor();
+            Medit.ShowDialog();
+        }
+
+        private void dumpToTranslationDBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Translation Database|*.tdb";
+            if(sfd.ShowDialog() == DialogResult.OK)
+            {
+                TranslationContainer tCon = new TranslationContainer();
+                foreach (KeyValuePair<string, ModelPiece> pair in MCon.models)
+                {
+                    Model m = new Model();
+                    foreach (KeyValuePair<string, ModelPart> part in pair.Value.Parts)
+                    {
+                        Part p = new Part();
+
+                        p.Translation[0] = part.Value.TranslationX;
+                        p.Translation[1] = part.Value.TranslationY;
+                        p.Translation[2] = part.Value.TranslationZ;
+
+                        m.Translations.Add(part.Key, p);
+                    }
+                    tCon.Version = 1;
+                    tCon.Models.Add(pair.Key, m);
+                }
+                TranslationBuilder tb = new TranslationBuilder();
+                tb.Build(tCon, sfd.FileName);
+            }
+        }
+
+        private void dumpExpectedBedrockFIlenamesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (KeyValuePair<string, ModelPiece> pair in MCon.models)
+            {
+                Console.WriteLine(pair.Key.ToLower() + ".geo");
             }
         }
     }

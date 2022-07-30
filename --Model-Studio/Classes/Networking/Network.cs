@@ -13,7 +13,7 @@ namespace __Model_Studio.Classes
 {
     class Network
     {
-        static string Version = "1.0";
+        static string Version = "1.2";
         public static bool Beta = false;
         public static bool NeedsUpdate = false;
         public static string MainURL = "http://pckstudio.xyz/";

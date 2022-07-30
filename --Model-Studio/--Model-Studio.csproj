@@ -103,6 +103,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FiletypeWorkers\OptifineJEModel.cs" />
+    <Compile Include="Classes\MaterialsWorker\MaterialBuilder.cs" />
+    <Compile Include="Classes\MaterialsWorker\MaterialParser.cs" />
+    <Compile Include="Classes\MaterialsWorker\model\Material.cs" />
+    <Compile Include="Classes\MaterialsWorker\model\MaterialContainer.cs" />
     <Compile Include="Classes\misc\ArraySupport.cs" />
     <Compile Include="Classes\FiletypeWorkers\CSM Actions.cs" />
     <Compile Include="Classes\FiletypeWorkers\BedrockGeometry.cs" />
@@ -115,12 +119,9 @@
     <Compile Include="Classes\RavSoft\Translator.cs" />
     <Compile Include="Classes\Networking\Update.cs" />
     <Compile Include="Classes\misc\UserInteraction.cs" />
-    <Compile Include="Forms\3DCube.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\3DCube.Designer.cs">
-      <DependentUpon>3DCube.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Classes\TranslationDBWorker\model\TranslationContainer.cs" />
+    <Compile Include="Classes\TranslationDBWorker\TranslationBuilder.cs" />
+    <Compile Include="Classes\TranslationDBWorker\TranslationParser.cs" />
     <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,11 +140,11 @@
     <Compile Include="Forms\FakeProgressBar.Designer.cs">
       <DependentUpon>FakeProgressBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\FiletypeWorkers\ModelsBin.cs" />
     <Compile Include="Classes\Program.cs" />
@@ -153,11 +154,23 @@
     <Compile Include="Forms\HexBox.Designer.cs">
       <DependentUpon>HexBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MaterialEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MaterialEditor.Designer.cs">
+      <DependentUpon>MaterialEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewEntry.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\NewEntry.Designer.cs">
       <DependentUpon>NewEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UnidentifiedModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UnidentifiedModel.Designer.cs">
+      <DependentUpon>UnidentifiedModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ValueEditor.cs">
       <SubType>Form</SubType>
@@ -175,14 +188,20 @@
     <EmbeddedResource Include="Forms\FakeProgressBar.resx">
       <DependentUpon>FakeProgressBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HexBox.resx">
       <DependentUpon>HexBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MaterialEditor.resx">
+      <DependentUpon>MaterialEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewEntry.resx">
       <DependentUpon>NewEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UnidentifiedModel.resx">
+      <DependentUpon>UnidentifiedModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ValueEditor.resx">
       <DependentUpon>ValueEditor.cs</DependentUpon>
@@ -198,6 +217,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="bin\Debug\TemplateModels" />
+    <None Include="bin\Debug\Testing1338.tdb" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

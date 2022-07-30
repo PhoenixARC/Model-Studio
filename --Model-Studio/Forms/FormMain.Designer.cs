@@ -1,7 +1,7 @@
 ﻿
 namespace __Model_Studio
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,18 +30,24 @@ namespace __Model_Studio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.FileNodeTree = new System.Windows.Forms.TreeView();
             this.ModelStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.convertToCSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.convertToCSMToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertToJEMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dumpToTranslationDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dumpExpectedBedrockFIlenamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materialsEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +57,6 @@ namespace __Model_Studio
             this.EntryNodeTree = new System.Windows.Forms.TreeView();
             this.EntryStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewItemHexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.convertToJEMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModelStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.EntryStrip.SuspendLayout();
@@ -78,17 +83,21 @@ namespace __Model_Studio
             this.addToolStripMenuItem,
             this.removeToolStripMenuItem,
             this.convertToCSMToolStripMenuItem,
+            this.importJSONToolStripMenuItem,
             this.convertToCSMToolStripMenuItem1,
-            this.convertToJEMToolStripMenuItem});
+            this.convertToJEMToolStripMenuItem,
+            this.dumpToTranslationDBToolStripMenuItem,
+            this.dumpExpectedBedrockFIlenamesToolStripMenuItem});
             this.ModelStrip.Name = "ModelStrip";
-            this.ModelStrip.Size = new System.Drawing.Size(181, 136);
+            this.ModelStrip.Size = new System.Drawing.Size(261, 180);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Enabled = false;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Visible = false;
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
@@ -96,7 +105,7 @@ namespace __Model_Studio
             this.removeToolStripMenuItem.Enabled = false;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -104,21 +113,55 @@ namespace __Model_Studio
             // 
             this.convertToCSMToolStripMenuItem.Enabled = false;
             this.convertToCSMToolStripMenuItem.Name = "convertToCSMToolStripMenuItem";
-            this.convertToCSMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.convertToCSMToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.convertToCSMToolStripMenuItem.Text = "Convert to JSON";
             this.convertToCSMToolStripMenuItem.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem_Click);
+            // 
+            // importJSONToolStripMenuItem
+            // 
+            this.importJSONToolStripMenuItem.Enabled = false;
+            this.importJSONToolStripMenuItem.Name = "importJSONToolStripMenuItem";
+            this.importJSONToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.importJSONToolStripMenuItem.Text = "Import JSON";
+            this.importJSONToolStripMenuItem.Click += new System.EventHandler(this.importJSONToolStripMenuItem_Click);
             // 
             // convertToCSMToolStripMenuItem1
             // 
             this.convertToCSMToolStripMenuItem1.Name = "convertToCSMToolStripMenuItem1";
-            this.convertToCSMToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.convertToCSMToolStripMenuItem1.Size = new System.Drawing.Size(260, 22);
             this.convertToCSMToolStripMenuItem1.Text = "Convert to CSM";
+            this.convertToCSMToolStripMenuItem1.Visible = false;
             this.convertToCSMToolStripMenuItem1.Click += new System.EventHandler(this.convertToCSMToolStripMenuItem1_Click);
+            // 
+            // convertToJEMToolStripMenuItem
+            // 
+            this.convertToJEMToolStripMenuItem.Name = "convertToJEMToolStripMenuItem";
+            this.convertToJEMToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.convertToJEMToolStripMenuItem.Text = "Convert to JEM";
+            this.convertToJEMToolStripMenuItem.Visible = false;
+            this.convertToJEMToolStripMenuItem.Click += new System.EventHandler(this.convertToJEMToolStripMenuItem_Click);
+            // 
+            // dumpToTranslationDBToolStripMenuItem
+            // 
+            this.dumpToTranslationDBToolStripMenuItem.Name = "dumpToTranslationDBToolStripMenuItem";
+            this.dumpToTranslationDBToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.dumpToTranslationDBToolStripMenuItem.Text = "Dump To Translation DB";
+            this.dumpToTranslationDBToolStripMenuItem.Visible = false;
+            this.dumpToTranslationDBToolStripMenuItem.Click += new System.EventHandler(this.dumpToTranslationDBToolStripMenuItem_Click);
+            // 
+            // dumpExpectedBedrockFIlenamesToolStripMenuItem
+            // 
+            this.dumpExpectedBedrockFIlenamesToolStripMenuItem.Name = "dumpExpectedBedrockFIlenamesToolStripMenuItem";
+            this.dumpExpectedBedrockFIlenamesToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.dumpExpectedBedrockFIlenamesToolStripMenuItem.Text = "Dump expected bedrock FIlenames";
+            this.dumpExpectedBedrockFIlenamesToolStripMenuItem.Visible = false;
+            this.dumpExpectedBedrockFIlenamesToolStripMenuItem.Click += new System.EventHandler(this.dumpExpectedBedrockFIlenamesToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.toolToolStripMenuItem,
             this.infoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -160,6 +203,21 @@ namespace __Model_Studio
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // toolToolStripMenuItem
+            // 
+            this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.materialsEditorToolStripMenuItem});
+            this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
+            this.toolToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.toolToolStripMenuItem.Text = "Tool";
+            // 
+            // materialsEditorToolStripMenuItem
+            // 
+            this.materialsEditorToolStripMenuItem.Name = "materialsEditorToolStripMenuItem";
+            this.materialsEditorToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.materialsEditorToolStripMenuItem.Text = " Materials Editor";
+            this.materialsEditorToolStripMenuItem.Click += new System.EventHandler(this.materialsEditorToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
@@ -238,14 +296,7 @@ namespace __Model_Studio
             this.viewItemHexToolStripMenuItem.Text = "View item hex";
             this.viewItemHexToolStripMenuItem.Click += new System.EventHandler(this.viewItemHexToolStripMenuItem_Click);
             // 
-            // convertToJEMToolStripMenuItem
-            // 
-            this.convertToJEMToolStripMenuItem.Name = "convertToJEMToolStripMenuItem";
-            this.convertToJEMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.convertToJEMToolStripMenuItem.Text = "Convert to JEM";
-            this.convertToJEMToolStripMenuItem.Click += new System.EventHandler(this.convertToJEMToolStripMenuItem_Click);
-            // 
-            // Form1
+            // FormMain
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,7 +307,7 @@ namespace __Model_Studio
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Spark Model Editor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FileNodeTree_DragDrop);
@@ -293,6 +344,11 @@ namespace __Model_Studio
         private System.Windows.Forms.ToolStripMenuItem sendABugReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem convertToCSMToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem convertToJEMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importJSONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem materialsEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dumpToTranslationDBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dumpExpectedBedrockFIlenamesToolStripMenuItem;
     }
 }
 

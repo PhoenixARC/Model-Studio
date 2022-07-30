@@ -9,7 +9,6 @@ C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\--Model-Stud
 C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.exe
 C:\Users\phoen\source\repos\--Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.pdb
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.AssemblyReference.cache
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Form1.resources
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Properties.Resources.resources
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.GenerateResource.cache
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.CoreCompileInputs.cache
@@ -33,3 +32,6 @@ C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Stud
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.CopyComplete
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Newtonsoft.Json.dll
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Newtonsoft.Json.xml
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.FormMain.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.MaterialEditor.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.UnidentifiedModel.resources
