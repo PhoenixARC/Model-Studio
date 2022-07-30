@@ -38,5 +38,6 @@ namespace ModelsWorker.model
         public float UvX;
         public float UvY;
         public float Scale;
+        public bool Mirror;
     }
 }

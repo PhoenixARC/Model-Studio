@@ -46,8 +46,8 @@ namespace ModelsWorker
             {
                 string Modelname = ArrSupport.GetString(s); // get model name
                 ModelPiece mp = new ModelPiece();
-                mp.TextureWidth = ArrSupport.GetInt32(s); // get texture width
                 mp.TextureHeight = ArrSupport.GetInt32(s); // get texture height
+                mp.TextureWidth = ArrSupport.GetInt32(s); // get texture width
                 int NumOfParts = ArrSupport.GetInt32(s); // get number of parts in model
 
                 for (int j = 0; j < NumOfParts; j++)
@@ -77,7 +77,7 @@ namespace ModelsWorker
                         mb.UvX = ArrSupport.Getfloat(s); // get part box Texture UV in X dimension
                         mb.UvY = ArrSupport.Getfloat(s); // get part box Texture UV in Y dimension
                         mb.Scale = ArrSupport.Getfloat(s); // get part box Scale
-                        s.ReadByte();
+                        mb.Mirror = ArrSupport.GetBool(s);
                         mpart.Boxes.Add(x.ToString(), mb);
                     }
                     mp.Parts.Add(ModelPartname, mpart);

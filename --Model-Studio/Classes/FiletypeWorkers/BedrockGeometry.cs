@@ -106,6 +106,8 @@ namespace __Model_Studio.Classes.FiletypeWorkers
                     NewCube.size[2] = mbox.Value.Width;
                     NewCube.uv[0] = mbox.Value.UvX;
                     NewCube.uv[1] = mbox.Value.UvY;
+                    NewCube.inflate = mbox.Value.Scale;
+                    NewCube.mirror = mbox.Value.Mirror;
                     cubes.Add(NewCube);
                 }
                 jb.rotation[0] = mpart.Value.RotationX;
@@ -140,8 +142,8 @@ namespace __Model_Studio.Classes.FiletypeWorkers
             JObject jobj = JsonConvert.DeserializeObject<JObject>(WJ.entries["minecraft:geometry"].ToString());
             try
             {
-                mp.TextureWidth = Convert.ToInt32(jobj.textureheight);
-                mp.TextureHeight = Convert.ToInt32(jobj.texturewidth);
+                mp.TextureWidth = Convert.ToInt32(jobj.texturewidth);
+                mp.TextureHeight = Convert.ToInt32(jobj.textureheight);
             }
             catch (Exception)
             {
@@ -172,7 +174,8 @@ namespace __Model_Studio.Classes.FiletypeWorkers
                     mbox.Width= Convert.ToInt32(cube.size[2]);
                     mbox.UvX = cube.uv[0];
                     mbox.UvY = cube.uv[1];
-                    mbox.Scale = 0;
+                    mbox.Scale = cube.inflate;
+                    mbox.Mirror = cube.mirror;
                     mpart.Boxes.Add(i.ToString(), mbox);
                     i++;
                 }
@@ -244,5 +247,7 @@ namespace __Model_Studio.Classes.FiletypeWorkers
         public float[] origin = new float[3];
         public float[] size = new float[3];
         public float[] uv = new float[2];
+        public float inflate = 0.0f;
+        public bool mirror = false;
     }
 }

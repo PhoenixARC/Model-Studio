@@ -26,6 +26,23 @@ internal class ArraySupport
 		}
 		return BitConverter.ToInt16(array, 0);
 	}
+	internal bool GetBool(Stream InputStream)
+	{
+		byte[] array = ReadStreamBytes(InputStream, 1);
+
+        switch (array[0])
+        {
+			case 0x00:
+				return false;
+				break;
+			case 0x01:
+				return true;
+				break;
+			default:
+				return false;
+				break;
+        }
+	}
 
 	internal float Getfloat(Stream InputStream)
 	{
@@ -145,6 +162,18 @@ internal class ArraySupport
 			Array.Reverse(bytes);
 		}
 		InputStream.Write(bytes, 0, bytes.Length);
+	}
+	internal void WriteBoolToStream(bool value, Stream InputStream)
+	{
+		switch (value)
+		{
+			case true:
+				InputStream.Write(new byte[] {0x01}, 0, 1);
+				break;
+			case false:
+				InputStream.Write(new byte[] { 0x00 }, 0, 1);
+				break;
+		}
 	}
 
 	internal void WriteIntToStream(int Number, Stream InputStream)

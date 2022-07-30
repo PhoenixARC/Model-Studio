@@ -54,7 +54,7 @@ namespace __Model_Studio.Forms
             this.label1.Size = new System.Drawing.Size(293, 140);
             this.label1.TabIndex = 1;
             this.label1.Text = "Spark Model Editor\r\n\r\nVersion: %s\r\n\r\nAuthor: PhoenixARC\r\n\r\nModels.bin research by" +
-    " Matt/MayNL";
+    " May/MattNL";
             // 
             // About
             // 
