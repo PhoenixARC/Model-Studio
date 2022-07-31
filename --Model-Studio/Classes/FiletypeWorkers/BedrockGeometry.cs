@@ -99,7 +99,7 @@ namespace __Model_Studio.Classes.FiletypeWorkers
                     JCube NewCube = new JCube();
 
                     NewCube.origin[0] = mbox.Value.PositionX + mpart.Value.TranslationX;
-                    NewCube.origin[1] = mbox.Value.PositionY + mpart.Value.TranslationY - 24;
+                    NewCube.origin[1] = -1*((mbox.Value.PositionY + mpart.Value.TranslationY - 24)+mbox.Value.Height);
                     NewCube.origin[2] = mbox.Value.PositionZ + mpart.Value.TranslationZ;
                     NewCube.size[0] = mbox.Value.Length;
                     NewCube.size[1] = mbox.Value.Height;
@@ -166,9 +166,9 @@ namespace __Model_Studio.Classes.FiletypeWorkers
                 foreach (JCube cube in bone.cubes)
                 {
                     ModelBox mbox = new ModelBox();
-                    mbox.PositionX = cube.origin[0] - TCon.Models[modelname].Translations[bone.name].Translation[0];
-                    mbox.PositionY = cube.origin[1] + 24 - TCon.Models[modelname].Translations[bone.name].Translation[1];
-                    mbox.PositionZ = cube.origin[2] - TCon.Models[modelname].Translations[bone.name].Translation[2];
+                    mbox.PositionX = cube.origin[0] - mpart.TranslationX;
+                    mbox.PositionY = -1 * ((cube.origin[1] + mpart.TranslationY) + Convert.ToInt32(cube.size[1]))+24;
+                    mbox.PositionZ = cube.origin[2] - mpart.TranslationZ;
                     mbox.Length = Convert.ToInt32(cube.size[0]);
                     mbox.Height = Convert.ToInt32(cube.size[1]);
                     mbox.Width= Convert.ToInt32(cube.size[2]);

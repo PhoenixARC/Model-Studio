@@ -23,15 +23,13 @@ C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Stud
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.FakeProgressBar.resources
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Spark Model Editor.exe
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\Spark Model Editor.pdb
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\MoreLinq.dll
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\System.ValueTuple.dll
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\MoreLinq.pdb
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\MoreLinq.xml
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\System.ValueTuple.xml
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.SuggestedBindingRedirects.cache
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.CopyComplete
-C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Newtonsoft.Json.dll
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\Newtonsoft.Json.xml
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.FormMain.resources
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.MaterialEditor.resources
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\__Model_Studio.Forms.UnidentifiedModel.resources
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Debug\--Model-Studio.csproj.Fody.CopyLocal.cache
