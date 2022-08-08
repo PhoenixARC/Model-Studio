@@ -57,7 +57,7 @@ namespace ModelsWorker
                         ArrSupport.WriteFloatToStream(box.Value.UvY, fs);
                         ArrSupport.WriteFloatToStream(box.Value.Scale, fs);
                         ArrSupport.WriteBoolToStream(box.Value.Mirror, fs);
-                        
+
                     }
                 }
             }

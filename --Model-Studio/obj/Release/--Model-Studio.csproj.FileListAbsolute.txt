@@ -23,3 +23,28 @@ C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_St
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.UnidentifiedModel.resources
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\bin\Release\System.Diagnostics.DiagnosticSource.xml
 C:\Users\phoen\source\repos\##Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.Fody.CopyLocal.cache
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\bin\Release\Spark Model Editor.exe.config
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\bin\Release\Spark Model Editor.exe
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\bin\Release\Spark Model Editor.pdb
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\bin\Release\MoreLinq.xml
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\bin\Release\Newtonsoft.Json.xml
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\bin\Release\System.Diagnostics.DiagnosticSource.xml
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\bin\Release\System.ValueTuple.xml
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.AssemblyReference.cache
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.SuggestedBindingRedirects.cache
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.About.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.ChangeLog.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.FakeProgressBar.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.FormMain.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.HexBox.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.MaterialEditor.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.NewEntry.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.UnidentifiedModel.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Forms.ValueEditor.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\__Model_Studio.Properties.Resources.resources
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.GenerateResource.cache
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.CoreCompileInputs.cache
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.Fody.CopyLocal.cache
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\--Model-Studio.csproj.CopyComplete
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\Spark Model Editor.exe
+E:\_dev\ModelsBin\Model-Studio\--Model-Studio\obj\Release\Spark Model Editor.pdb
