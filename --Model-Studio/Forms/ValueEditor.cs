@@ -49,6 +49,9 @@ namespace __Model_Studio.Forms
                     else
                         textBox1.Text = BitConverter.ToInt32(data, 0).ToString();
                     break;
+                case 3:
+                    textBox1.Text = BitConverter.ToBoolean(data, 0) ? "true" : "false";
+                    break;
             }
         }
 
@@ -97,14 +100,17 @@ namespace __Model_Studio.Forms
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            var regex = new Regex(@"[^0-9.\u002d\s\b]");
-            if (NodeMode == 2)
-            {
-                regex = new Regex(@"[^0-9\u002d\s\b]");
-            }
-            if (regex.IsMatch(e.KeyChar.ToString()))
-            {
-                e.Handled = true;
+            if(NodeMode != 3)
+			{
+                var regex = new Regex(@"[^0-9.\u002d\s\b]");
+                if (NodeMode == 2)
+                {
+                    regex = new Regex(@"[^0-9\u002d\s\b]");
+                }
+                if (regex.IsMatch(e.KeyChar.ToString()))
+                {
+                    e.Handled = true;
+                }
             }
         }
 
@@ -127,6 +133,11 @@ namespace __Model_Studio.Forms
                 {
                     EntryList[index] = BitConverter.GetBytes(Int32.Parse(textBox1.Text)).ToArray();
                 }
+            }
+            else if (NodeMode == 3)
+            {
+                Node.Text = Param + ": " + Boolean.Parse(textBox1.Text).ToString();
+                EntryList[index] = BitConverter.GetBytes(Boolean.Parse(textBox1.Text)).ToArray();
             }
             this.Close();
         }

@@ -77,7 +77,9 @@ namespace ModelsWorker
                         mb.UvX = ArrSupport.Getfloat(s); // get part box Texture UV in X dimension
                         mb.UvY = ArrSupport.Getfloat(s); // get part box Texture UV in Y dimension
                         mb.Scale = ArrSupport.Getfloat(s); // get part box Scale
-                        mb.Mirror = ArrSupport.GetBool(s);
+                        mb.Mirror = ArrSupport.GetBool(s); // get part box Mirror UV
+                        Console.WriteLine(mb.Scale);
+                        Console.WriteLine(mb.Mirror);
                         mpart.Boxes.Add(x.ToString(), mb);
                     }
                     mp.Parts.Add(ModelPartname, mpart);

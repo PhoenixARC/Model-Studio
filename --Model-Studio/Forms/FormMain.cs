@@ -398,11 +398,12 @@ namespace __Model_Studio
                     AddNode(TN0, "PositionY : " + box.PositionY, "float");
                     AddNode(TN0, "PositionZ : " + box.PositionZ, "float");
                     AddNode(TN0, "Length : " + box.Length, "integer");
-                    AddNode(TN0, "Width : " + box.Width, "integer");
                     AddNode(TN0, "Height : " + box.Height, "integer");
+                    AddNode(TN0, "Width : " + box.Width, "integer");
                     AddNode(TN0, "UvX : " + box.UvX, "float");
                     AddNode(TN0, "UvY : " + box.UvY, "float");
                     AddNode(TN0, "Scale : " + box.Scale, "float");
+                    AddNode(TN0, "Mirror UV : " + box.Mirror, "unknown");
                     EntryData.Add(BitConverter.GetBytes(box.PositionX));
                     EntryData.Add(BitConverter.GetBytes(box.PositionY));
                     EntryData.Add(BitConverter.GetBytes(box.PositionZ));
@@ -412,6 +413,7 @@ namespace __Model_Studio
                     EntryData.Add(BitConverter.GetBytes(box.UvX));
                     EntryData.Add(BitConverter.GetBytes(box.UvY));
                     EntryData.Add(BitConverter.GetBytes(box.Scale));
+                    EntryData.Add(BitConverter.GetBytes(box.Mirror));
                     break;
             }
 
@@ -515,6 +517,11 @@ namespace __Model_Studio
                 Forms.ValueEditor ve = new Forms.ValueEditor(EntryNodeTree.SelectedNode, 2, EntryData, EntryNodeTree.SelectedNode.Index);
                 ve.ShowDialog();
             }
+            else if (EntryNodeTree.SelectedNode.ImageIndex == 0)
+            {
+                Forms.ValueEditor ve = new Forms.ValueEditor(EntryNodeTree.SelectedNode, 3, EntryData, EntryNodeTree.SelectedNode.Index);
+                ve.ShowDialog();
+            }
 
 
             ModelBox box = new ModelBox();
@@ -555,6 +562,7 @@ namespace __Model_Studio
                     box.UvX = BitConverter.ToSingle(EntryData[6], 0);
                     box.UvY = BitConverter.ToSingle(EntryData[7], 0);
                     box.Scale = BitConverter.ToSingle(EntryData[8], 0);
+                    box.Mirror = BitConverter.ToBoolean(EntryData[9], 0);
                     break;
             }
         }
